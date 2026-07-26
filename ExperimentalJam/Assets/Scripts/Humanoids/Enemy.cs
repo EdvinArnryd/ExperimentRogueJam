@@ -6,32 +6,19 @@ public class Enemy : MonoBehaviour, IDamageable
     [SerializeField] private Health _health;
     [SerializeField] private int _collisionDamage = 1;
 
-    // Player References
-    private Player _collidingPlayer;
-    private bool _isCollidingPlayer;
-
     public void TakeDamage(int damage)
     {
         _health.LoseHealth(damage);
     }
 
-    void OnCollisionStay2D(Collision2D collision)
+    private void OnTriggerStay2D(Collider2D collider)
     {
-        _collidingPlayer = collision.gameObject.GetComponent<Player>();
+        Player _collidingPlayer = collider.gameObject.GetComponent<Player>();
 
         if(_collidingPlayer != null)
         {
-            _isCollidingPlayer = true;
             _collidingPlayer.TakeDamage(_collisionDamage);
-        }
-    }
-
-    void OnCollisionExit2D(Collision2D collision)
-    {
-        if(_collidingPlayer != null)
-        {
-            _isCollidingPlayer = false;
-            _collidingPlayer = null;
+            print("Taking Damage");
         }
     }
 }

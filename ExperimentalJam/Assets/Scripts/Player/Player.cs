@@ -18,13 +18,16 @@ public class Player : MonoBehaviour, IDamageable
     {
         if(_damageImmune) return;
         _health.LoseHealth(damage);
+
         _damageFlash.CallDamageFlasher();
-        _damageImmune = true;
+
         StartCoroutine(DamageImmunityCooldown());
     }
 
     private IEnumerator DamageImmunityCooldown()
     {
+        _damageImmune = true;
+
         float elapsedTime = 0;
         while(elapsedTime < _immunityCooldown)
         {
@@ -35,4 +38,6 @@ public class Player : MonoBehaviour, IDamageable
 
         _damageImmune = false;
     }
+
+
 }
