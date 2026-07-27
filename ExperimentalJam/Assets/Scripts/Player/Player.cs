@@ -4,8 +4,6 @@ using UnityEngine;
 public class Player : MonoBehaviour, IDamageable
 {
     [SerializeField] private Health _health;
-    
-    [SerializeField] private float _immunityCooldown = 1f;
     private bool _damageImmune = false;
     
     private DamageFlash _damageFlash;
@@ -29,7 +27,7 @@ public class Player : MonoBehaviour, IDamageable
         _damageImmune = true;
 
         float elapsedTime = 0;
-        while(elapsedTime < _immunityCooldown)
+        while(elapsedTime < _damageFlash.GetFlashTime())
         {
             elapsedTime += Time.deltaTime;
 

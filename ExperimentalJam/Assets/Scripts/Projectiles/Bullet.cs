@@ -22,4 +22,9 @@ public class Bullet : MonoBehaviour
 
         Destroy(gameObject);
     }
+
+    public void SetRotation(Quaternion quaternion)
+    {
+        transform.rotation = quaternion;
+    }
 }
