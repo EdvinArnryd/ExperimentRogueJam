@@ -1,3 +1,4 @@
+using System.Collections;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
@@ -8,6 +9,11 @@ public class PlayerController : MonoBehaviour
 
     [SerializeField] private float _speed = 5;
 
+    // Dash
+    [SerializeField] private float _dashSpeed = 10f;
+    [SerializeField] private float _dashDuration = 0.4f;
+    private bool _isDashing = false;
+
 
     void Awake()
     {
@@ -15,6 +21,9 @@ public class PlayerController : MonoBehaviour
 
         _inputActions.Player.Move.performed += OnMove;
         _inputActions.Player.Move.canceled += OnMove;
+
+        _inputActions.Player.Dash.performed += OnDash;
+        _inputActions.Player.Dash.canceled -= OnDash;
     }
     
     private void OnEnable()
@@ -42,5 +51,29 @@ public class PlayerController : MonoBehaviour
     public void OnMove(InputAction.CallbackContext context)
     {
         _moveInput = context.ReadValue<Vector2>();
+    }
+
+    public void OnDash(InputAction.CallbackContext context)
+    {
+        if(_isDashing) return;
+        StartCoroutine(Dash());
+    }
+
+    private IEnumerator Dash()
+    {
+        Vector2 direction = _moveInput.normalized;
+        _isDashing = true;
+
+        float elapsedTime = 0f;
+        
+        while(elapsedTime < _dashDuration)
+        {
+            elapsedTime += Time.deltaTime;
+
+            transform.Translate(direction * _dashSpeed * Time.deltaTime);
+
+            yield return null;
+        }
+        _isDashing = false;
     }
 }
