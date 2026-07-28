@@ -1,3 +1,4 @@
+using System.Collections;
 using UnityEngine;
 
 public class Bullet : MonoBehaviour
@@ -5,6 +6,11 @@ public class Bullet : MonoBehaviour
     [SerializeField] private float _speed;
     [SerializeField] private float _lifeTime;
     [SerializeField] private int _damage;
+
+    void Start()
+    {
+        StartCoroutine(DestroyBullet());
+    }
 
     void Update()
     {
@@ -19,12 +25,25 @@ public class Bullet : MonoBehaviour
         {
             damageable.TakeDamage(_damage);
         }
-
+        
         Destroy(gameObject);
     }
 
     public void SetRotation(Quaternion quaternion)
     {
         transform.rotation = quaternion;
+    }
+
+    private IEnumerator DestroyBullet()
+    {
+        float elapsedTime = 0f;
+        while(elapsedTime < _lifeTime)
+        {
+            elapsedTime += Time.deltaTime;
+
+            yield return null;
+        }
+
+        Destroy(gameObject);
     }
 }
