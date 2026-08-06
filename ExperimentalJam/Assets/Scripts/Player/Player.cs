@@ -6,12 +6,8 @@ public class Player : MonoBehaviour, IDamageable
     [SerializeField] private Health _health;
     private bool _damageImmune = false;
     
-    private DamageFlash _damageFlash;
+    [SerializeField] private DamageFlash _damageFlash;
 
-    void Start()
-    {
-        _damageFlash = GetComponent<DamageFlash>();
-    }
     public void TakeDamage(int damage)
     {
         if(_damageImmune) return;

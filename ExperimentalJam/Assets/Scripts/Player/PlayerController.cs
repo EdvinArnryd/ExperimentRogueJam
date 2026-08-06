@@ -1,6 +1,7 @@
 using System.Collections;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using UnityEngine.TextCore.Text;
 
 public class PlayerController : MonoBehaviour
 {
@@ -13,6 +14,12 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private float _dashSpeed = 10f;
     [SerializeField] private float _dashDuration = 0.4f;
     private bool _isDashing = false;
+
+
+    // Character
+    [SerializeField] private Character _character;
+    private bool _isLeft = false;
+    private bool _isRight = true;
 
 
     void Awake()
@@ -39,6 +46,7 @@ public class PlayerController : MonoBehaviour
     void Update()
     {
         MovePlayer();
+        RotateCharacter();
     }
 
     private void MovePlayer()
@@ -46,6 +54,24 @@ public class PlayerController : MonoBehaviour
         Vector2 movement = new Vector2(_moveInput.x, _moveInput.y);
 
         transform.Translate(movement * _speed * Time.deltaTime);
+    }
+
+    private void RotateCharacter()
+    {
+        if(_moveInput.x > 0.01f && _isLeft)
+        {
+            _isRight = true;
+            _isLeft = false;
+
+            _character.transform.Rotate(0,180,0);
+        }
+        else if(_moveInput.x < 0f && _isRight)
+        {
+            _isRight = false;
+            _isLeft = true;
+            _character.transform.Rotate(0,180,0);
+        }
+
     }
 
     public void OnMove(InputAction.CallbackContext context)
