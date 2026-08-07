@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using UnityEngine;
 using UnityEngine.InputSystem;
@@ -20,6 +21,9 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private Character _character;
     private bool _isLeft = false;
     private bool _isRight = true;
+
+
+    public event Action<bool> IsMoving;
 
 
     void Awake()
@@ -46,6 +50,7 @@ public class PlayerController : MonoBehaviour
     void Update()
     {
         MovePlayer();
+        IsPlayerMoving();
         RotateCharacter();
     }
 
@@ -54,6 +59,18 @@ public class PlayerController : MonoBehaviour
         Vector2 movement = new Vector2(_moveInput.x, _moveInput.y);
 
         transform.Translate(movement * _speed * Time.deltaTime);
+    }
+
+    private void IsPlayerMoving()
+    {
+        if(_moveInput.magnitude > 0.1f)
+        {
+            IsMoving?.Invoke(true);
+        }
+        else
+        {
+            IsMoving?.Invoke(false);
+        }
     }
 
     private void RotateCharacter()
@@ -71,7 +88,6 @@ public class PlayerController : MonoBehaviour
             _isLeft = true;
             _character.transform.Rotate(0,180,0);
         }
-
     }
 
     public void OnMove(InputAction.CallbackContext context)
