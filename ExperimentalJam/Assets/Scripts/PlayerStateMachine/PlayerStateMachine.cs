@@ -1,7 +1,7 @@
 using System;
 using UnityEngine;
 
-public class StateMachine : MonoBehaviour
+public class PlayerStateMachine : MonoBehaviour
 {
     [SerializeField] private Animator _anim;
     [SerializeField] private PlayerController _playerController;
