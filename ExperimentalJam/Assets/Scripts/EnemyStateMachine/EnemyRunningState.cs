@@ -1,16 +1,26 @@
 using UnityEngine;
 
-public class EnemyRunningState : MonoBehaviour
+public class EnemyRunningState : EnemyState
 {
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
+    public override void Enter(EnemyStateMachine stateMachine)
     {
-        
+        stateMachine.SetAnimation("Run");
     }
 
-    // Update is called once per frame
-    void Update()
+    public override void Exit(EnemyStateMachine stateMachine)
     {
-        
+        throw new System.NotImplementedException();
+    }
+
+    public override void UpdateState(EnemyStateMachine stateMachine)
+    {
+        /*
+        if(Player isInRange)
+        {
+            ChasePlayer();
+            stateMachine.ChangeState(stateMachine._runningState);
+        }
+
+        */
     }
 }
