@@ -4,6 +4,7 @@ using UnityEngine;
 public class Player : MonoBehaviour, IDamageable
 {
     [SerializeField] private Health _health;
+    [SerializeField] private Weapon _weapon;
     private bool _damageImmune = false;
     
     [SerializeField] private DamageFlash _damageFlash;
@@ -31,6 +32,11 @@ public class Player : MonoBehaviour, IDamageable
         }
 
         _damageImmune = false;
+    }
+
+    public void Attack(Vector2 direction)
+    {
+        _weapon.Attack(direction);
     }
 
 

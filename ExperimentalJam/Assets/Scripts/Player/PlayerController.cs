@@ -22,6 +22,9 @@ public class PlayerController : MonoBehaviour
     private bool _isLeft = false;
     private bool _isRight = true;
 
+    // Player
+    [SerializeField] private Player _player;
+
 
     public event Action<bool> IsMoving;
 
@@ -35,6 +38,9 @@ public class PlayerController : MonoBehaviour
 
         _inputActions.Player.Dash.performed += OnDash;
         _inputActions.Player.Dash.canceled -= OnDash;
+
+        _inputActions.Player.Attack.performed += OnAttack;
+        // _inputActions.Player.Attack.canceled += OnAttack;
     }
     
     private void OnEnable()
@@ -117,5 +123,10 @@ public class PlayerController : MonoBehaviour
             yield return null;
         }
         _isDashing = false;
+    }
+
+    private void OnAttack(InputAction.CallbackContext context)
+    {
+        _player.Attack(_moveInput.normalized);
     }
 }
