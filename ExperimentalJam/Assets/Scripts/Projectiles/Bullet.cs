@@ -7,6 +7,8 @@ public class Bullet : MonoBehaviour
     [SerializeField] private float _lifeTime;
     [SerializeField] private int _damage;
 
+    private Vector2 _direction;
+
     void Start()
     {
         StartCoroutine(DestroyBullet());
@@ -14,7 +16,7 @@ public class Bullet : MonoBehaviour
 
     void Update()
     {
-        transform.Translate(Vector2.up * _speed * Time.deltaTime);
+        transform.Translate(_direction * _speed * Time.deltaTime, Space.World);
     }
 
     void OnCollisionEnter2D(Collision2D collision)
@@ -29,9 +31,9 @@ public class Bullet : MonoBehaviour
         Destroy(gameObject);
     }
 
-    public void SetRotation(Quaternion quaternion)
+    public void SetDirection(Vector2 direction)
     {
-        transform.rotation = quaternion;
+        _direction = direction;
     }
 
     private IEnumerator DestroyBullet()

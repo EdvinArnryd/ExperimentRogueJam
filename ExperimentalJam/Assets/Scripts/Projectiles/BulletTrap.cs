@@ -17,11 +17,10 @@ public class BulletTrap : MonoBehaviour
         float elapsedTime = 0f;
         
         Bullet bullet = Instantiate(_bulletPrefab, _muzzle.transform.position, Quaternion.identity);
-        bullet.SetRotation(transform.rotation);
+        // bullet.SetRotation(transform.rotation);
         while(elapsedTime < _bulletCooldown)
         {
             elapsedTime += Time.deltaTime;
-
 
             yield return null;
         }

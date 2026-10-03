@@ -6,25 +6,21 @@ using UnityEngine.TextCore.Text;
 
 public class PlayerController : MonoBehaviour
 {
-    private InputSystem_Actions _inputActions;
-    private Vector2 _moveInput;
-
     [SerializeField] private float _speed = 5;
-
-    // Dash
     [SerializeField] private float _dashSpeed = 10f;
     [SerializeField] private float _dashDuration = 0.4f;
+    [SerializeField] private Character _character;
+    [SerializeField] private Player _player;
+    private InputSystem_Actions _inputActions;
+    private Vector2 _moveInput;
+    private Vector2 _playerDirection;
+
+    // Dash
     private bool _isDashing = false;
 
-
     // Character
-    [SerializeField] private Character _character;
     private bool _isLeft = false;
     private bool _isRight = true;
-
-    // Player
-    [SerializeField] private Player _player;
-
 
     public event Action<bool> IsMoving;
 
@@ -34,13 +30,15 @@ public class PlayerController : MonoBehaviour
         _inputActions = new InputSystem_Actions();
 
         _inputActions.Player.Move.performed += OnMove;
-        _inputActions.Player.Move.canceled += OnMove;
+        _inputActions.Player.Move.canceled += OnStopMoving;
 
         _inputActions.Player.Dash.performed += OnDash;
         _inputActions.Player.Dash.canceled -= OnDash;
 
         _inputActions.Player.Attack.performed += OnAttack;
-        // _inputActions.Player.Attack.canceled += OnAttack;
+
+
+        _playerDirection = new Vector2(1,0);
     }
     
     private void OnEnable()
@@ -99,6 +97,12 @@ public class PlayerController : MonoBehaviour
     public void OnMove(InputAction.CallbackContext context)
     {
         _moveInput = context.ReadValue<Vector2>();
+        _playerDirection = _moveInput;
+    }
+
+    public void OnStopMoving(InputAction.CallbackContext context)
+    {
+        _moveInput = context.ReadValue<Vector2>();
     }
 
     public void OnDash(InputAction.CallbackContext context)
@@ -127,6 +131,6 @@ public class PlayerController : MonoBehaviour
 
     private void OnAttack(InputAction.CallbackContext context)
     {
-        _player.Attack(_moveInput.normalized);
+        _player.Attack(_playerDirection.normalized);
     }
 }

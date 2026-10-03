@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using UnityEngine;
 
@@ -36,8 +37,6 @@ public class Player : MonoBehaviour, IDamageable
 
     public void Attack(Vector2 direction)
     {
-        _weapon.Attack(direction);
+        _weapon.Attack(transform, direction);
     }
-
-
 }

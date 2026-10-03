@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 
 public class Weapon : MonoBehaviour
@@ -7,12 +8,13 @@ public class Weapon : MonoBehaviour
     [SerializeField] private float _speed = 1;
     [SerializeField] private float _coolDown = 1;
     [SerializeField] private float _size = 1;
+    [SerializeField] private Sprite _weaponImage;
+    [SerializeField] private Bullet _bulletPrefab;
 
-
-    [SerializeField] private GameObject _weaponPrefab;
-
-    public void Attack(Vector2 direction)
+    public void Attack(Transform playerTransform, Vector2 direction)
     {
-        // Instantiate(_weaponPrefab, world, direction);
+        Bullet bullet = Instantiate(_bulletPrefab, playerTransform.position, Quaternion.identity);
+
+        bullet.SetDirection(direction);
     }
 }
