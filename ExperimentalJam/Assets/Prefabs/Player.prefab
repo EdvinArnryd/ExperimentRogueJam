@@ -127,8 +127,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _speed: 5
-  _dashSpeed: 10
+  _dashSpeed: 4
   _dashDuration: 0.4
+  _character: {fileID: 57552198347298651}
+  _player: {fileID: 5264206788500332863}
 --- !u!114 &5264206788500332863
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -142,6 +144,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _health: {fileID: 7765583205798326421}
+  _weapon: {fileID: 2074262760167842676, guid: cfdabcd12ff56714685ebd4ed83fa4de, type: 3}
   _damageFlash: {fileID: 1036807172542020347}
 --- !u!114 &7765583205798326421
 MonoBehaviour:
@@ -167,8 +170,9 @@ GameObject:
   - component: {fileID: 2197008167016156920}
   - component: {fileID: 7735027808811415892}
   - component: {fileID: 1426284272627771378}
-  - component: {fileID: 2892519284160763239}
   - component: {fileID: 1036807172542020347}
+  - component: {fileID: 57552198347298651}
+  - component: {fileID: 3635932247563030102}
   m_Layer: 0
   m_Name: Knight
   m_TagString: Untagged
@@ -234,7 +238,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 1
+  m_SortingOrder: 0
   m_Sprite: {fileID: 3967019532428607231, guid: 5b0d0febfff208d469b0569b59ee3710, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -268,19 +272,6 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
---- !u!114 &2892519284160763239
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4241913654282284654}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a6dd68442ede321479dbd683b7b859d8, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _rb: {fileID: 1420526486248906960}
 --- !u!114 &1036807172542020347
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -295,3 +286,30 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _flashColor: {r: 1, g: 1, b: 1, a: 1}
   _flashTime: 0.5
+--- !u!114 &57552198347298651
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4241913654282284654}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7e3df532cb607464b950c44d729cf54c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &3635932247563030102
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4241913654282284654}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e2b2ebe39c13d374b8834e285228ea88, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _anim: {fileID: 1426284272627771378}
+  _playerController: {fileID: 2739633050128511165}
+  _transitionTime: 0.25
