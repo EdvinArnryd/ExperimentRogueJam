@@ -5,13 +5,8 @@ public class Enemy : MonoBehaviour, IDamageable
 {
     [SerializeField] private Health _health;
     [SerializeField] private int _collisionDamage = 1;
+    [SerializeField] private DamageFlash _damageFlash;
 
-    private DamageFlash _damageFlash;
-
-    void Start()
-    {
-        _damageFlash = GetComponent<DamageFlash>();
-    }
     public void TakeDamage(int damage)
     {
         _health.LoseHealth(damage);
@@ -26,7 +21,6 @@ public class Enemy : MonoBehaviour, IDamageable
         if(_collidingPlayer != null)
         {
             _collidingPlayer.TakeDamage(_collisionDamage);
-            print("Taking Damage");
         }
     }
 }

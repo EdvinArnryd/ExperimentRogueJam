@@ -6,6 +6,7 @@ public class Bullet : MonoBehaviour
     [SerializeField] private float _speed;
     [SerializeField] private float _lifeTime;
     [SerializeField] private int _damage;
+    [SerializeField] private bool _isPlayerBullet;
 
     private Vector2 _direction;
 
@@ -18,9 +19,13 @@ public class Bullet : MonoBehaviour
     {
         transform.Translate(_direction * _speed * Time.deltaTime, Space.World);
     }
-
-    void OnCollisionEnter2D(Collision2D collision)
+    
+    void OnTriggerEnter2D(Collider2D collision)
     {
+        if(_isPlayerBullet && collision.gameObject.CompareTag("Player"))
+        {
+            return;
+        }
         IDamageable damageable = collision.gameObject.GetComponent<IDamageable>();
 
         if(damageable != null)

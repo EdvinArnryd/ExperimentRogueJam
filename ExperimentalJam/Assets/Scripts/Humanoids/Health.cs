@@ -16,7 +16,6 @@ public class Health : MonoBehaviour
 
     private void Die()
     {
-        print($"{gameObject} Died.");
         Destroy(gameObject);
     }
 
