@@ -17,7 +17,7 @@ public class BulletTrap : MonoBehaviour
         float elapsedTime = 0f;
         
         Bullet bullet = Instantiate(_bulletPrefab, _muzzle.transform.position, Quaternion.identity);
-        // bullet.SetRotation(transform.rotation);
+        bullet.SetDirection(GetVector2Rotation());
         while(elapsedTime < _bulletCooldown)
         {
             elapsedTime += Time.deltaTime;
@@ -25,5 +25,14 @@ public class BulletTrap : MonoBehaviour
             yield return null;
         }
         StartCoroutine(ShootBullets());
+    }
+
+    private Vector2 GetVector2Rotation()
+    {
+        Quaternion rotation = transform.rotation;
+
+        Vector2 direction = rotation * Vector2.up;
+
+        return direction;
     }
 }
