@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 7452425241160170144}
   - component: {fileID: 5600464489011073437}
   - component: {fileID: 4139508665948668935}
+  - component: {fileID: 1924623869791888892}
   m_Layer: 0
   m_Name: Skelly
   m_TagString: Untagged
@@ -77,7 +78,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 1
+  m_SortingOrder: 0
   m_Sprite: {fileID: -7098249558181796534, guid: 5b0d0febfff208d469b0569b59ee3710, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -125,6 +126,18 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _flashColor: {r: 1, g: 1, b: 1, a: 1}
   _flashTime: 0.5
+--- !u!114 &1924623869791888892
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 71639007009357775}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7e3df532cb607464b950c44d729cf54c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &8356151624399704261
 GameObject:
   m_ObjectHideFlags: 0
@@ -197,8 +210,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4ca61d1fb371bdc4a9d77b2543843ea0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _target: {fileID: 0}
   _agent: {fileID: 8982412021648912159}
+  _character: {fileID: 1924623869791888892}
 --- !u!114 &3527897207333240912
 MonoBehaviour:
   m_ObjectHideFlags: 0
