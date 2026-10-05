@@ -1,16 +1,33 @@
+using System.Collections;
 using UnityEngine;
 
 public class Character : MonoBehaviour
 {
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
+    [SerializeField] private Health _health;
+    private Animator _animator;
+    [SerializeField] private float _deathSpeed = 90f;
+    [SerializeField] private float _maxRotation = 70f;
+    void Awake()
     {
-        
+        _animator = GetComponent<Animator>();
+
+        _health.OnDeath += DeathAnimation;
     }
 
-    // Update is called once per frame
-    void Update()
+    private void DeathAnimation()
     {
-        
+        StartCoroutine(DeathCoroutine());
+    }
+
+    private IEnumerator DeathCoroutine()
+    {
+        _animator.CrossFade("Die", 0.1f);
+        while(transform.eulerAngles.x < _maxRotation)
+        {
+            transform.Rotate(_deathSpeed * Time.deltaTime,0,0);
+            yield return null;
+        }
+
+        Destroy(_health.gameObject);
     }
 }

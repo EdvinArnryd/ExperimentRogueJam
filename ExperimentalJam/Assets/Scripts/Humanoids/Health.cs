@@ -5,8 +5,8 @@ public class Health : MonoBehaviour
 {
     [SerializeField] private int _startHealth;
     private int _currentHealth;
-
     public event Action<int> OnHealthUpdate;
+    public event Action OnDeath;
 
     void Awake()
     {
@@ -16,7 +16,10 @@ public class Health : MonoBehaviour
 
     private void Die()
     {
-        Destroy(gameObject);
+        // Destroy(gameObject);
+
+        // Disable collider
+        OnDeath?.Invoke();
     }
 
     public void LoseHealth(int damage)

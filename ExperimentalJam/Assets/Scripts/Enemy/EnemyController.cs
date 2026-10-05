@@ -7,12 +7,18 @@ public class EnemyController : MonoBehaviour
     [SerializeField] private NavMeshAgent _agent;
     [SerializeField] private Character _character;
 
+    // Components
+    private Health _health;
+
     // Character
     private bool _isLeft = false;
     private bool _isRight = true;
 
     void Start()
     {
+        _health = GetComponent<Health>();
+        _health.OnDeath += EnemyDeath;
+
         _agent.updateRotation = false;
         _agent.updateUpAxis = false;
 
@@ -40,5 +46,10 @@ public class EnemyController : MonoBehaviour
             _isLeft = true;
             _character.transform.Rotate(0,180,0);
         }
+    }
+
+    private void EnemyDeath()
+    {
+        _agent.isStopped = true;
     }
 }
