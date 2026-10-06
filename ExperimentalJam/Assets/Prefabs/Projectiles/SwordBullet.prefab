@@ -103,7 +103,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 63213ce523d339b4790c7cdce3a61d20, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _rotationSpeed: 400
+  _rotationSpeed: 500
 --- !u!114 &3968657663986212103
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -116,9 +116,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 52cc911d7ba670d449977c86673c6711, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _moveSpeed: 2
-  _lifeTime: 3
-  _shrinkTime: 2
+  _moveSpeed: 5
+  _lifeTime: 2
+  _shrinkTime: 1
   _damage: 2
   _isPlayerBullet: 1
 --- !u!61 &6014863834383467899
@@ -193,7 +193,7 @@ Transform:
   m_GameObject: {fileID: 5151924367089602853}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.045, y: 0.737, z: 0.58851016}
+  m_LocalPosition: {x: -0.008, y: 0.639, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 1
   m_Children: []
@@ -243,7 +243,7 @@ TrailRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: -1
   m_Time: 0.3
   m_PreviewTimeScale: 1
   m_Parameters:
@@ -306,9 +306,9 @@ TrailRenderer:
     numCornerVertices: 0
     numCapVertices: 0
     alignment: 0
-    textureMode: 0
+    textureMode: 1
     textureScale: {x: 1, y: 1}
-    shadowBias: 39.85
+    shadowBias: 1
     generateLightingData: 0
   m_MinVertexDistance: 0.001
   m_MaskInteraction: 0

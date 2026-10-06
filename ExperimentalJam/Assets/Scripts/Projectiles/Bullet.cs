@@ -13,11 +13,13 @@ public class Bullet : MonoBehaviour
     private Vector2 _direction;
 
     private BoxCollider2D _collider;
-    private Sprite _sprite;
+    private SpriteRenderer _sprite;
+    private Color _color;
 
     void Start()
     {
-        _sprite = GetComponent<Sprite>();
+        _sprite = GetComponent<SpriteRenderer>();
+        _color = GetComponent<SpriteRenderer>().color;
         _collider = GetComponent<BoxCollider2D>();
         StartCoroutine(DestroyBullet());
     }
@@ -64,11 +66,22 @@ public class Bullet : MonoBehaviour
     private IEnumerator FadeOutBullet()
     {
         _collider.enabled = false;
-        _moveSpeed = 1;
         float timer = Time.time;
+
+        float shrinkAmount = 1f / _shrinkTime;
+        float shrinkSpeed = transform.localScale.magnitude / _shrinkTime;
+        float slowAmount = _moveSpeed / _shrinkTime;
+
         while(Time.time - timer < _shrinkTime)
         {
-            transform.localScale -= transform.localScale * Time.deltaTime;
+            _moveSpeed -= slowAmount * Time.deltaTime;
+            _color.a -= shrinkAmount * Time.deltaTime;
+            _sprite.color = _color;
+            transform.localScale = Vector3.MoveTowards(
+            transform.localScale,
+            Vector3.zero,
+            shrinkSpeed * Time.deltaTime
+        );
             yield return null;
         }
         Destroy(gameObject);

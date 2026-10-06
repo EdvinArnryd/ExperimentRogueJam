@@ -8,17 +8,18 @@ public class Health : MonoBehaviour
     public event Action<int> OnHealthUpdate;
     public event Action OnDeath;
 
+    private BoxCollider2D _collider;
+
     void Awake()
     {
+        _collider = GetComponent<BoxCollider2D>();
         _currentHealth = _startHealth;
         OnHealthUpdate?.Invoke(_currentHealth);
     }
 
     private void Die()
     {
-        // Destroy(gameObject);
-
-        // Disable collider
+        _collider.enabled = false;
         OnDeath?.Invoke();
     }
 
