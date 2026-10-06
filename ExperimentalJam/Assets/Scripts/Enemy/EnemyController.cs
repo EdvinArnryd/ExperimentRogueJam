@@ -22,7 +22,7 @@ public class EnemyController : MonoBehaviour
         _agent.updateRotation = false;
         _agent.updateUpAxis = false;
 
-        _target = GameManager.Instance._player;
+        _target = GameManager.Instance.Player;
     }
 
     void Update()

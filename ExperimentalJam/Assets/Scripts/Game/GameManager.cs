@@ -5,7 +5,7 @@ public class GameManager : MonoBehaviour
     public static GameManager Instance { get; private set; }
 
     // Values that need to be accessible from anywhere
-    [SerializeField] public Player _player;
+    [SerializeField] public Player Player;
 
     private void Awake()
     {

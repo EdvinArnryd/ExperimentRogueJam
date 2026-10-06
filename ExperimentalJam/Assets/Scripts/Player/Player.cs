@@ -12,6 +12,8 @@ public class Player : MonoBehaviour, IDamageable
 
     private int _coins;
 
+    public event Action<int> OnCoinsUpdate; 
+
     public void TakeDamage(int damage)
     {
         if(_damageImmune) return;
@@ -45,5 +47,6 @@ public class Player : MonoBehaviour, IDamageable
     public void PickUpCoin()
     {
         _coins++;
+        OnCoinsUpdate?.Invoke(_coins);
     }
 }
