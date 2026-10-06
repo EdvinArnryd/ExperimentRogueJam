@@ -4,6 +4,7 @@ using UnityEngine;
 public class Character : MonoBehaviour
 {
     [SerializeField] private Health _health;
+    [SerializeField] private ParticleSystem _particles;
     private Animator _animator;
     [SerializeField] private float _deathSpeed = 90f;
     [SerializeField] private float _maxRotation = 70f;
@@ -21,6 +22,7 @@ public class Character : MonoBehaviour
 
     private IEnumerator DeathCoroutine()
     {
+        _particles.Play();
         _animator.CrossFade("Die", 0.1f);
         while(transform.eulerAngles.x < _maxRotation)
         {
