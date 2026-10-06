@@ -5065,6 +5065,7 @@ MonoBehaviour:
   _health: {fileID: 741590463321509324}
   _collisionDamage: 1
   _damageFlash: {fileID: 4139508665948668935}
+  _pickup: {fileID: 3974260228901618012, guid: 5ba7f9bd32c327f458fdccfc2e40ceca, type: 3}
 --- !u!114 &741590463321509324
 MonoBehaviour:
   m_ObjectHideFlags: 0

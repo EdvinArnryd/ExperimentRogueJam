@@ -10,6 +10,8 @@ public class Player : MonoBehaviour, IDamageable
     
     [SerializeField] private DamageFlash _damageFlash;
 
+    private int _coins;
+
     public void TakeDamage(int damage)
     {
         if(_damageImmune) return;
@@ -38,5 +40,10 @@ public class Player : MonoBehaviour, IDamageable
     public void Attack(Vector2 direction)
     {
         _weapon.Attack(transform, direction);
+    }
+
+    public void PickUpCoin()
+    {
+        _coins++;
     }
 }
