@@ -33,7 +33,7 @@ public class Bullet : MonoBehaviour
             damageable.TakeDamage(_damage);
         }
         
-        Destroy(gameObject);
+        //Destroy(gameObject);
     }
 
     public void SetDirection(Vector2 direction)

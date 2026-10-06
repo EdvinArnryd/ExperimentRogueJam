@@ -184,7 +184,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.8301887, g: 0.23887502, b: 0.33165407, a: 1}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -650,6 +650,11 @@ MonoBehaviour:
       m_PostInfinity: 2
       m_RotationOrder: 4
   CustomBlends: {fileID: 0}
+--- !u!198 &567661137 stripped
+ParticleSystem:
+  m_CorrespondingSourceObject: {fileID: 5495902693385346548, guid: b6ebdc21d2768fb4ca53c6e26ea12b04, type: 3}
+  m_PrefabInstance: {fileID: 6396029599480165931}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &602988294
 GameObject:
   m_ObjectHideFlags: 0
@@ -12042,38 +12047,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 6769127903460759162, guid: b7008373d7eafb94c910c85035ee3d66, type: 3}
-      propertyPath: ColorModule.enabled
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 6769127903460759162, guid: b7008373d7eafb94c910c85035ee3d66, type: 3}
-      propertyPath: ColorModule.gradient.maxGradient.atime2
-      value: 65535
-      objectReference: {fileID: 0}
-    - target: {fileID: 6769127903460759162, guid: b7008373d7eafb94c910c85035ee3d66, type: 3}
-      propertyPath: ColorModule.gradient.maxGradient.key0.b
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 6769127903460759162, guid: b7008373d7eafb94c910c85035ee3d66, type: 3}
-      propertyPath: ColorModule.gradient.maxGradient.key0.g
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 6769127903460759162, guid: b7008373d7eafb94c910c85035ee3d66, type: 3}
-      propertyPath: ColorModule.gradient.maxGradient.key0.r
-      value: 0.7264151
-      objectReference: {fileID: 0}
-    - target: {fileID: 6769127903460759162, guid: b7008373d7eafb94c910c85035ee3d66, type: 3}
-      propertyPath: ColorModule.gradient.maxGradient.key1.a
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 6769127903460759162, guid: b7008373d7eafb94c910c85035ee3d66, type: 3}
-      propertyPath: ColorModule.gradient.maxGradient.key2.a
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 6769127903460759162, guid: b7008373d7eafb94c910c85035ee3d66, type: 3}
-      propertyPath: ColorModule.gradient.maxGradient.m_ColorSpace
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 8356151624399704261, guid: b7008373d7eafb94c910c85035ee3d66, type: 3}
       propertyPath: m_Name
       value: AIEnemy
@@ -12149,16 +12122,12 @@ PrefabInstance:
     m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: 57552198347298651, guid: b6ebdc21d2768fb4ca53c6e26ea12b04, type: 3}
-      propertyPath: _health
+      propertyPath: _particles
       value: 
-      objectReference: {fileID: 6396029599480165932}
+      objectReference: {fileID: 567661137}
     - target: {fileID: 3141109407867007051, guid: b6ebdc21d2768fb4ca53c6e26ea12b04, type: 3}
       propertyPath: m_Name
       value: Player
-      objectReference: {fileID: 0}
-    - target: {fileID: 7735027808811415892, guid: b6ebdc21d2768fb4ca53c6e26ea12b04, type: 3}
-      propertyPath: m_SortingOrder
-      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8796989472916511062, guid: b6ebdc21d2768fb4ca53c6e26ea12b04, type: 3}
       propertyPath: m_Pivot.x
