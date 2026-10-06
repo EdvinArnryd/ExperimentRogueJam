@@ -1,23 +1,30 @@
 using System.Collections;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class Bullet : MonoBehaviour
 {
-    [SerializeField] private float _speed;
+    [SerializeField] private float _moveSpeed;
     [SerializeField] private float _lifeTime;
+    [SerializeField] private float _shrinkTime;
     [SerializeField] private int _damage;
     [SerializeField] private bool _isPlayerBullet;
 
     private Vector2 _direction;
 
+    private BoxCollider2D _collider;
+    private Sprite _sprite;
+
     void Start()
     {
+        _sprite = GetComponent<Sprite>();
+        _collider = GetComponent<BoxCollider2D>();
         StartCoroutine(DestroyBullet());
     }
 
     void Update()
     {
-        transform.Translate(_direction * _speed * Time.deltaTime, Space.World);
+        transform.Translate(_direction * _moveSpeed * Time.deltaTime, Space.World);
     }
     
     void OnTriggerEnter2D(Collider2D collision)
@@ -51,6 +58,19 @@ public class Bullet : MonoBehaviour
             yield return null;
         }
 
+        StartCoroutine(FadeOutBullet());
+    }
+
+    private IEnumerator FadeOutBullet()
+    {
+        _collider.enabled = false;
+        _moveSpeed = 1;
+        float timer = Time.time;
+        while(Time.time - timer < _shrinkTime)
+        {
+            transform.localScale -= transform.localScale * Time.deltaTime;
+            yield return null;
+        }
         Destroy(gameObject);
     }
 }

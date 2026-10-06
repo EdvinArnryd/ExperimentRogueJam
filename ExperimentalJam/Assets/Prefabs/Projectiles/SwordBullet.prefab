@@ -116,8 +116,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 52cc911d7ba670d449977c86673c6711, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _speed: 4
+  _moveSpeed: 2
   _lifeTime: 3
+  _shrinkTime: 2
   _damage: 2
   _isPlayerBullet: 1
 --- !u!61 &6014863834383467899

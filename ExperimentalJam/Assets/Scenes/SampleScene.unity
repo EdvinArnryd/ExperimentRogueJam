@@ -12309,6 +12309,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Player
       objectReference: {fileID: 0}
+    - target: {fileID: 7735027808811415892, guid: b6ebdc21d2768fb4ca53c6e26ea12b04, type: 3}
+      propertyPath: m_SortingOrder
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 8796989472916511062, guid: b6ebdc21d2768fb4ca53c6e26ea12b04, type: 3}
       propertyPath: m_Pivot.x
       value: 0.5
