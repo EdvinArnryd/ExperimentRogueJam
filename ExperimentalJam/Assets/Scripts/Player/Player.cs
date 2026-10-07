@@ -44,9 +44,9 @@ public class Player : MonoBehaviour, IDamageable
         _weapon.Attack(transform, direction);
     }
 
-    public void PickUpCoin()
+    public void AddCoin(int coins)
     {
-        _coins++;
+        _coins += coins;
         OnCoinsUpdate?.Invoke(_coins);
     }
 }

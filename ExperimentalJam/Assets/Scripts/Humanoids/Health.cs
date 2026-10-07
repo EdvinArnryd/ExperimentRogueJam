@@ -3,7 +3,7 @@ using UnityEngine;
 
 public class Health : MonoBehaviour
 {
-    [SerializeField] private int _startHealth;
+    [SerializeField] private int _maxHealth;
     private int _currentHealth;
     public event Action<int> OnHealthUpdate;
     public event Action OnDeath;
@@ -13,7 +13,7 @@ public class Health : MonoBehaviour
     void Awake()
     {
         _collider = GetComponent<BoxCollider2D>();
-        _currentHealth = _startHealth;
+        _currentHealth = _maxHealth;
         OnHealthUpdate?.Invoke(_currentHealth);
     }
 
@@ -36,11 +36,20 @@ public class Health : MonoBehaviour
     public void GainHealth(int heal)
     {
         _currentHealth += heal;
+        if(_currentHealth > _maxHealth)
+        {
+            _currentHealth = _maxHealth;
+        }
         OnHealthUpdate?.Invoke(_currentHealth);
     }
 
     public int GetHealth()
     {
         return _currentHealth;
+    }
+
+    public int GetMaxHealth()
+    {
+        return _maxHealth;
     }
 }
