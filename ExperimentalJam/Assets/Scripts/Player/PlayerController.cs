@@ -6,7 +6,7 @@ using UnityEngine.TextCore.Text;
 
 public class PlayerController : MonoBehaviour
 {
-    [SerializeField] private float _speed = 5;
+    [SerializeField] private float _movementSpeed = 5;
     [SerializeField] private float _dashSpeed = 10f;
     [SerializeField] private float _dashDuration = 0.4f;
     [SerializeField] private Character _character;
@@ -62,7 +62,7 @@ public class PlayerController : MonoBehaviour
     {
         Vector2 movement = new Vector2(_moveInput.x, _moveInput.y);
 
-        transform.Translate(movement * _speed * Time.deltaTime);
+        transform.Translate(movement * _movementSpeed * Time.deltaTime);
     }
 
     private void IsPlayerMoving()
@@ -132,5 +132,17 @@ public class PlayerController : MonoBehaviour
     private void OnAttack(InputAction.CallbackContext context)
     {
         _player.Attack(_playerDirection.normalized);
+    }
+
+    public void MovementSpeedBoost(float speedBoost, float duration)
+    {
+        StartCoroutine(MovementSpeedBoostRoutine(speedBoost, duration));
+    }
+
+    private IEnumerator MovementSpeedBoostRoutine(float speedBoost, float duration)
+    {
+        _movementSpeed += speedBoost;
+        yield return new WaitForSeconds(duration);
+        _movementSpeed -= speedBoost;
     }
 }

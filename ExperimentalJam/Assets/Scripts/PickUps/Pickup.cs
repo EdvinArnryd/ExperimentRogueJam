@@ -10,11 +10,11 @@ public abstract class Pickup : MonoBehaviour
 
         if(player != null)
         {
-            PickUp();
+            PickUp(player);
         }
     }
 
-    public abstract void PickUp();
+    public abstract void PickUp(Player player);
 
     protected void DestroyPickup()
     {

@@ -4,9 +4,9 @@ public class CoinPickup : Pickup
 {
     [SerializeField, Range(1,5)] private int _coinAmount;
     
-    public override void PickUp()
+    public override void PickUp(Player player)
     {
-        GameManager.Instance.Player.AddCoin(_coinAmount);
+        player.AddCoin(_coinAmount);
 
         DestroyPickup();
     }

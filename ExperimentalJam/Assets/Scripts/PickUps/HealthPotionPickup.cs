@@ -4,16 +4,16 @@ public class HealthPotionPickup : Pickup
 {
     [SerializeField, Range(1,5)] private int _healAmount;
     
-    public override void PickUp()
+    public override void PickUp(Player player)
     {
-        Health playerHealth = GameManager.Instance.Player.GetComponent<Health>();
+        Health playerHealth = player.GetComponent<Health>();
 
         if(playerHealth.GetMaxHealth() == playerHealth.GetHealth())
         {
             return;
         }
 
-        GameManager.Instance.Player.GetComponent<Health>().GainHealth(_healAmount);
+        playerHealth.GainHealth(_healAmount);
 
         DestroyPickup();
     }
