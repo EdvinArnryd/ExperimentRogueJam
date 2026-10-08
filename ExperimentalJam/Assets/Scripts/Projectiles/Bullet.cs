@@ -1,4 +1,5 @@
 using System.Collections;
+using System.Runtime.Serialization;
 using Unity.VisualScripting;
 using UnityEngine;
 
@@ -13,13 +14,13 @@ public class Bullet : MonoBehaviour
     private Vector2 _direction;
 
     private BoxCollider2D _collider;
-    private SpriteRenderer _sprite;
+    [SerializeField] private SpriteRenderer _sprite;
     private Color _color;
 
     void Start()
     {
-        _sprite = GetComponent<SpriteRenderer>();
-        _color = GetComponent<SpriteRenderer>().color;
+        // _sprite = GetComponent<SpriteRenderer>();
+        _color = _sprite.color;
         _collider = GetComponent<BoxCollider2D>();
         StartCoroutine(DestroyBullet());
     }

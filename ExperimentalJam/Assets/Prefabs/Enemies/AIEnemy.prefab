@@ -5050,6 +5050,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _agent: {fileID: 8982412021648912159}
   _character: {fileID: 1924623869791888892}
+  _knockBackTimer: 0.3
 --- !u!114 &3527897207333240912
 MonoBehaviour:
   m_ObjectHideFlags: 0
