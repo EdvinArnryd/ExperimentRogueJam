@@ -9,11 +9,11 @@ public class Weapon : MonoBehaviour
     [SerializeField] private float _coolDown = 1;
     [SerializeField] private float _size = 1;
     [SerializeField] private Sprite _weaponImage;
-    [SerializeField] private Bullet _bulletPrefab;
+    [SerializeField] private Projectile _projectilePrefab;
 
     public void Attack(Transform playerTransform, Vector2 direction)
     {
-        Bullet bullet = Instantiate(_bulletPrefab, playerTransform.position, Quaternion.identity);
+        Projectile bullet = Instantiate(_projectilePrefab, playerTransform.position, Quaternion.identity);
 
         bullet.SetDirection(direction);
     }

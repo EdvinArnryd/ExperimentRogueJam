@@ -129,4 +129,4 @@ MonoBehaviour:
   _coolDown: 1
   _size: 1
   _weaponImage: {fileID: 0}
-  _bulletPrefab: {fileID: 6074068637231798455, guid: 75ea047f327c73f419cba5d6a6d96f06, type: 3}
+  _projectilePrefab: {fileID: 6074068637231798455, guid: 75ea047f327c73f419cba5d6a6d96f06, type: 3}

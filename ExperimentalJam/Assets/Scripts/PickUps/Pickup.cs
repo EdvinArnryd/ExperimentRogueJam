@@ -2,7 +2,7 @@ using UnityEngine;
 
 public abstract class Pickup : MonoBehaviour
 {
-    [SerializeField] public AudioClip _audio;
+    [SerializeField] private AudioClip _audio;
 
     void OnTriggerEnter2D(Collider2D collision)
     {

@@ -1,7 +1,7 @@
 using System.Diagnostics;
 using UnityEngine;
 
-public class RotatingProjectile : MonoBehaviour
+public class Rotation : MonoBehaviour
 {
     [SerializeField] private float _rotation;
 

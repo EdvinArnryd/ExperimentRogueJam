@@ -1,28 +1,28 @@
 using System.Collections;
-using System.Runtime.Serialization;
-using Unity.VisualScripting;
 using UnityEngine;
 
-public class Bullet : MonoBehaviour
+public class Projectile : MonoBehaviour
 {
+    [Header("Projectile Alive Variables")]
     [SerializeField] private float _moveSpeed;
     [SerializeField] private float _lifeTime;
-    [SerializeField] private float _shrinkTime;
     [SerializeField] private int _damage;
-    [SerializeField] private bool _isPlayerBullet;
+    [SerializeField] private bool _isPlayerProjectile;
+
+    [Header("Projectile Dead Variables")]
+    [SerializeField] private float _shrinkTime;
+    private SpriteRenderer _sprite;
+    private Color _color;
+    private BoxCollider2D _collider;
 
     private Vector2 _direction;
 
-    private BoxCollider2D _collider;
-    [SerializeField] private SpriteRenderer _sprite;
-    private Color _color;
-
     void Start()
     {
-        // _sprite = GetComponent<SpriteRenderer>();
+        _sprite = GetComponent<SpriteRenderer>();
         _color = _sprite.color;
         _collider = GetComponent<BoxCollider2D>();
-        StartCoroutine(DestroyBullet());
+        StartCoroutine(DestroyProjectile());
     }
 
     void Update()
@@ -32,7 +32,7 @@ public class Bullet : MonoBehaviour
     
     void OnTriggerEnter2D(Collider2D collision)
     {
-        if(_isPlayerBullet && collision.gameObject.CompareTag("Player"))
+        if(_isPlayerProjectile && collision.gameObject.CompareTag("Player"))
         {
             return;
         }
@@ -51,7 +51,7 @@ public class Bullet : MonoBehaviour
         _direction = direction;
     }
 
-    private IEnumerator DestroyBullet()
+    private IEnumerator DestroyProjectile()
     {
         float elapsedTime = 0f;
         while(elapsedTime < _lifeTime)
@@ -61,10 +61,10 @@ public class Bullet : MonoBehaviour
             yield return null;
         }
 
-        StartCoroutine(FadeOutBullet());
+        StartCoroutine(FadeOutProjectile());
     }
 
-    private IEnumerator FadeOutBullet()
+    private IEnumerator FadeOutProjectile()
     {
         _collider.enabled = false;
         float timer = Time.time;

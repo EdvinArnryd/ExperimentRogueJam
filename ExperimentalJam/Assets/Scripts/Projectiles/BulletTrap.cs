@@ -3,7 +3,7 @@ using UnityEngine;
 
 public class BulletTrap : MonoBehaviour
 {
-    [SerializeField] private Bullet _bulletPrefab;
+    [SerializeField] private Projectile _bulletPrefab;
     [SerializeField] private GameObject _muzzle;
 
     [SerializeField] private float _bulletCooldown = 1f;
@@ -16,7 +16,7 @@ public class BulletTrap : MonoBehaviour
     {
         float elapsedTime = 0f;
         
-        Bullet bullet = Instantiate(_bulletPrefab, _muzzle.transform.position, Quaternion.identity);
+        Projectile bullet = Instantiate(_bulletPrefab, _muzzle.transform.position, Quaternion.identity);
         bullet.SetDirection(GetVector2Rotation());
         while(elapsedTime < _bulletCooldown)
         {

@@ -10,11 +10,11 @@ GameObject:
   m_Component:
   - component: {fileID: 8870251905073275000}
   - component: {fileID: 5210565501479865174}
-  - component: {fileID: 3642828870488479623}
-  - component: {fileID: 3968657663986212103}
   - component: {fileID: 6014863834383467899}
+  - component: {fileID: 6137995341914711583}
+  - component: {fileID: 3180170343060285792}
   m_Layer: 0
-  m_Name: SwordBullet
+  m_Name: SwordProjectile
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -91,37 +91,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!114 &3642828870488479623
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4576552988451659270}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 63213ce523d339b4790c7cdce3a61d20, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _rotationSpeed: 500
---- !u!114 &3968657663986212103
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4576552988451659270}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 52cc911d7ba670d449977c86673c6711, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _moveSpeed: 5
-  _lifeTime: 2
-  _shrinkTime: 1
-  _damage: 2
-  _isPlayerBullet: 1
-  _sprite: {fileID: 5210565501479865174}
 --- !u!61 &6014863834383467899
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -168,6 +137,37 @@ BoxCollider2D:
   m_AutoTiling: 0
   m_Size: {x: 0.510206, y: 2}
   m_EdgeRadius: 0
+--- !u!114 &6137995341914711583
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4576552988451659270}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 68726539a77cc1d4a9e9ac0634a66c19, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _rotation: -360
+--- !u!114 &3180170343060285792
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4576552988451659270}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 52cc911d7ba670d449977c86673c6711, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _moveSpeed: 2
+  _lifeTime: 2
+  _shrinkTime: 1
+  _damage: 2
+  _isPlayerProjectile: 1
+  _sprite: {fileID: 5210565501479865174}
 --- !u!1 &5151924367089602853
 GameObject:
   m_ObjectHideFlags: 0
