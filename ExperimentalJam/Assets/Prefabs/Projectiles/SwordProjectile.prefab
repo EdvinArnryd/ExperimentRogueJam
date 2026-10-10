@@ -144,7 +144,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4576552988451659270}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 68726539a77cc1d4a9e9ac0634a66c19, type: 3}
   m_Name: 
@@ -164,10 +164,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _moveSpeed: 2
   _lifeTime: 2
-  _shrinkTime: 1
   _damage: 2
   _isPlayerProjectile: 1
-  _sprite: {fileID: 5210565501479865174}
+  _shrinkTime: 1
 --- !u!1 &5151924367089602853
 GameObject:
   m_ObjectHideFlags: 0
