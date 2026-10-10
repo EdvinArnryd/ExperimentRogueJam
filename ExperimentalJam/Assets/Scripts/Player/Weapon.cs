@@ -12,8 +12,12 @@ public class Weapon : MonoBehaviour
 
     public void Attack(Transform playerTransform, Vector2 direction)
     {
-        Projectile bullet = Instantiate(_projectilePrefab, playerTransform.position, Quaternion.identity);
+        float angle = Mathf.Atan2(-direction.x, direction.y) * Mathf.Rad2Deg;
 
-        bullet.SetDirection(direction);
+        Quaternion rotation = Quaternion.Euler(0, 0, angle);
+
+        Projectile projectile = Instantiate(_projectilePrefab, playerTransform.position, rotation);
+
+        projectile.SetDirection(direction);
     }
 }

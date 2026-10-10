@@ -11,10 +11,12 @@ public class Projectile : MonoBehaviour
 
     [Header("Projectile Dead Variables")]
     [SerializeField] private float _shrinkTime;
+    [SerializeField] private TrailRenderer _trail;
     private SpriteRenderer _sprite;
     private Color _color;
     private BoxCollider2D _collider;
 
+    [SerializeField] private float _rotationSpeed = 1;
     private Vector2 _direction;
 
     void Start()
@@ -28,6 +30,11 @@ public class Projectile : MonoBehaviour
     void Update()
     {
         transform.Translate(_direction * _moveSpeed * Time.deltaTime, Space.World);
+        _direction = Quaternion.Euler(
+            0f,
+            0f,
+            _rotationSpeed * Time.deltaTime
+        ) * _direction;
     }
     
     void OnTriggerEnter2D(Collider2D collision)
@@ -72,19 +79,29 @@ public class Projectile : MonoBehaviour
         float shrinkAmount = 1f / _shrinkTime;
         float shrinkSpeed = transform.localScale.magnitude / _shrinkTime;
         float slowAmount = _moveSpeed / _shrinkTime;
+        float trailShrinkAmount = _trail.startWidth / _shrinkTime;
 
         while(Time.time - timer < _shrinkTime)
         {
             _moveSpeed -= slowAmount * Time.deltaTime;
             _color.a -= shrinkAmount * Time.deltaTime;
             _sprite.color = _color;
+
             transform.localScale = Vector3.MoveTowards(
             transform.localScale,
             Vector3.zero,
             shrinkSpeed * Time.deltaTime
-        );
+            );
+
+            _trail.startWidth = Mathf.MoveTowards(
+            _trail.startWidth,
+            0f,
+            trailShrinkAmount * Time.deltaTime
+            );
+            
             yield return null;
         }
+        
         Destroy(gameObject);
     }
 }

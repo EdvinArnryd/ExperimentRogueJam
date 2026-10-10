@@ -144,12 +144,12 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4576552988451659270}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 68726539a77cc1d4a9e9ac0634a66c19, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _rotation: -360
+  _rotation: -500
 --- !u!114 &3180170343060285792
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -162,11 +162,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 52cc911d7ba670d449977c86673c6711, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _moveSpeed: 2
+  _moveSpeed: 6
   _lifeTime: 2
   _damage: 2
   _isPlayerProjectile: 1
   _shrinkTime: 1
+  _trail: {fileID: 1856158985095478901}
+  _rotationSpeed: 1
 --- !u!1 &5151924367089602853
 GameObject:
   m_ObjectHideFlags: 0
