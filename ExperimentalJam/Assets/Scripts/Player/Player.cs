@@ -14,6 +14,11 @@ public class Player : MonoBehaviour, IDamageable
 
     public event Action<int> OnCoinsUpdate; 
 
+    //Attack
+    [SerializeField] private float _attackCooldown = 1f;
+    private bool _readyToAttack = true;
+    public event Action<float> OnAttackCooldown;
+
     public void TakeDamage(int damage)
     {
         if(_damageImmune) return;
@@ -41,7 +46,29 @@ public class Player : MonoBehaviour, IDamageable
 
     public void Attack(Vector2 direction)
     {
-        _weapon.Attack(transform, direction);
+        if(_readyToAttack)
+        {
+            OnAttackCooldown?.Invoke(_attackCooldown);
+            
+            _weapon.Attack(transform, direction);
+
+            StartCoroutine(AttackCooldownRoutine());
+        }
+    }
+    
+    private IEnumerator AttackCooldownRoutine()
+    {
+        _readyToAttack = false;
+
+        // float timer = Time.time;
+        // while(Time.time - timer < _coolDown)
+        // {
+        //     yield return null;
+        // }
+
+        yield return new WaitForSeconds(_attackCooldown);
+
+        _readyToAttack = true;
     }
 
     public void AddCoin(int coins)
