@@ -6,6 +6,7 @@ public class GameManager : MonoBehaviour
 
     // Values that need to be accessible from anywhere
     [SerializeField] public Player Player;
+    [SerializeField] public PlayerController PlayerController;
 
     private void Awake()
     {

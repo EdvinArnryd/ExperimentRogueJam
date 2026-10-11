@@ -9,6 +9,7 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private float _movementSpeed = 5;
     [SerializeField] private float _dashSpeed = 10f;
     [SerializeField] private float _dashDuration = 0.4f;
+    [SerializeField] private float _dashCooldown = 2f;
     [SerializeField] private Character _character;
     [SerializeField] private Player _player;
     private InputSystem_Actions _inputActions;
@@ -23,6 +24,7 @@ public class PlayerController : MonoBehaviour
     private bool _isRight = true;
 
     public event Action<bool> IsMoving;
+    public event Action<float> OnDashCooldown;
 
 
     void Awake()
@@ -108,6 +110,7 @@ public class PlayerController : MonoBehaviour
     public void OnDash(InputAction.CallbackContext context)
     {
         if(_isDashing) return;
+        OnDashCooldown?.Invoke(_dashCooldown);
         StartCoroutine(Dash());
     }
 
@@ -116,16 +119,17 @@ public class PlayerController : MonoBehaviour
         Vector2 direction = _moveInput.normalized;
         _isDashing = true;
 
-        float elapsedTime = 0f;
+        float timer = Time.time;
         
-        while(elapsedTime < _dashDuration)
+        while(Time.time - timer < _dashDuration)
         {
-            elapsedTime += Time.deltaTime;
-
             transform.Translate(direction * _dashSpeed * Time.deltaTime);
 
             yield return null;
         }
+        
+        yield return new WaitForSeconds(_dashCooldown - _dashDuration);
+
         _isDashing = false;
     }
 

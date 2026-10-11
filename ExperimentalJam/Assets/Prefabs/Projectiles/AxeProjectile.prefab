@@ -155,7 +155,7 @@ MonoBehaviour:
   _isPlayerProjectile: 1
   _shrinkTime: 1
   _trail: {fileID: 8418561396896342501}
-  _rotationSpeed: 200
+  _rotationSpeed: 100
 --- !u!114 &1123365179256974661
 MonoBehaviour:
   m_ObjectHideFlags: 0
