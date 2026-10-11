@@ -162,7 +162,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 52cc911d7ba670d449977c86673c6711, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _moveSpeed: 6
+  _moveSpeed: 5
   _lifeTime: 2
   _damage: 2
   _isPlayerProjectile: 1

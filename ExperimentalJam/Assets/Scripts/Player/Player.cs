@@ -60,12 +60,6 @@ public class Player : MonoBehaviour, IDamageable
     {
         _readyToAttack = false;
 
-        // float timer = Time.time;
-        // while(Time.time - timer < _coolDown)
-        // {
-        //     yield return null;
-        // }
-
         yield return new WaitForSeconds(_attackCooldown);
 
         _readyToAttack = true;

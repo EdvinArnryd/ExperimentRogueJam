@@ -17,6 +17,7 @@ public class PlayerController : MonoBehaviour
     private Vector2 _playerDirection;
 
     // Dash
+    private bool _readyToDash = true;
     private bool _isDashing = false;
 
     // Character
@@ -38,7 +39,6 @@ public class PlayerController : MonoBehaviour
         _inputActions.Player.Dash.canceled -= OnDash;
 
         _inputActions.Player.Attack.performed += OnAttack;
-
 
         _playerDirection = new Vector2(1,0);
     }
@@ -62,9 +62,12 @@ public class PlayerController : MonoBehaviour
 
     private void MovePlayer()
     {
-        Vector2 movement = new Vector2(_moveInput.x, _moveInput.y);
+        if(!_isDashing)
+        {
+            Vector2 movement = new Vector2(_moveInput.x, _moveInput.y);
 
-        transform.Translate(movement * _movementSpeed * Time.deltaTime);
+            transform.Translate(movement * _movementSpeed * Time.deltaTime);
+        }
     }
 
     private void IsPlayerMoving()
@@ -92,6 +95,7 @@ public class PlayerController : MonoBehaviour
         {
             _isRight = false;
             _isLeft = true;
+
             _character.transform.Rotate(0,180,0);
         }
     }
@@ -109,7 +113,10 @@ public class PlayerController : MonoBehaviour
 
     public void OnDash(InputAction.CallbackContext context)
     {
-        if(_isDashing) return;
+        if(!_readyToDash) return;
+        _readyToDash = false;
+        _isDashing = true;
+
         OnDashCooldown?.Invoke(_dashCooldown);
         StartCoroutine(Dash());
     }
@@ -117,20 +124,19 @@ public class PlayerController : MonoBehaviour
     private IEnumerator Dash()
     {
         Vector2 direction = _moveInput.normalized;
-        _isDashing = true;
 
         float timer = Time.time;
-        
         while(Time.time - timer < _dashDuration)
         {
             transform.Translate(direction * _dashSpeed * Time.deltaTime);
 
             yield return null;
         }
-        
+        _isDashing = false;
+
         yield return new WaitForSeconds(_dashCooldown - _dashDuration);
 
-        _isDashing = false;
+        _readyToDash = true;
     }
 
     private void OnAttack(InputAction.CallbackContext context)
