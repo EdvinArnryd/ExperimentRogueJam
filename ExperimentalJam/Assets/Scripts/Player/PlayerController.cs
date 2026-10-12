@@ -25,6 +25,7 @@ public class PlayerController : MonoBehaviour
     private bool _isRight = true;
 
     public event Action<bool> IsMoving;
+    public event Action<bool> IsDashing;
     public event Action<float> OnDashCooldown;
 
 
@@ -116,6 +117,7 @@ public class PlayerController : MonoBehaviour
         if(!_readyToDash) return;
         _readyToDash = false;
         _isDashing = true;
+        IsDashing?.Invoke(_isDashing);
 
         OnDashCooldown?.Invoke(_dashCooldown);
         StartCoroutine(Dash());
@@ -133,7 +135,8 @@ public class PlayerController : MonoBehaviour
             yield return null;
         }
         _isDashing = false;
-
+        IsDashing?.Invoke(_isDashing);
+        
         yield return new WaitForSeconds(_dashCooldown - _dashDuration);
 
         _readyToDash = true;

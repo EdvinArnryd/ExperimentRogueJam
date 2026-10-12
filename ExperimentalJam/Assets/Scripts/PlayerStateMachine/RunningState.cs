@@ -15,6 +15,11 @@ public class RunningState : State
 
     public override void UpdateState(PlayerStateMachine stateMachine)
     {
+        if(stateMachine.GetIsDashing())
+        {
+            stateMachine.ChangeState(stateMachine._dashingState);
+        }
+
         if(!stateMachine.GetIsMoving())
         {
             stateMachine.ChangeState(stateMachine._idleState);

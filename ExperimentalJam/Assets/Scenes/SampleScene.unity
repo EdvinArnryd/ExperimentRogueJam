@@ -13215,14 +13215,6 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 1609745351481549109, guid: e2cf3149d6c1a5c4ea9ec4f455a0b518, type: 3}
-      propertyPath: _weapon
-      value: 
-      objectReference: {fileID: 2074262760167842676, guid: cfdabcd12ff56714685ebd4ed83fa4de, type: 3}
-    - target: {fileID: 3491612846821777233, guid: e2cf3149d6c1a5c4ea9ec4f455a0b518, type: 3}
-      propertyPath: _dashSpeed
-      value: 10
-      objectReference: {fileID: 0}
     - target: {fileID: 4244904066284456998, guid: e2cf3149d6c1a5c4ea9ec4f455a0b518, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -13262,6 +13254,22 @@ PrefabInstance:
     - target: {fileID: 4244904066284456998, guid: e2cf3149d6c1a5c4ea9ec4f455a0b518, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5461395054491908485, guid: e2cf3149d6c1a5c4ea9ec4f455a0b518, type: 3}
+      propertyPath: m_Parameters.textureMode
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 5461395054491908485, guid: e2cf3149d6c1a5c4ea9ec4f455a0b518, type: 3}
+      propertyPath: 'm_Materials.Array.data[0]'
+      value: 
+      objectReference: {fileID: -876546973899608171, guid: b6690a61e063798499895ae55290be86, type: 3}
+    - target: {fileID: 5461395054491908485, guid: e2cf3149d6c1a5c4ea9ec4f455a0b518, type: 3}
+      propertyPath: m_Parameters.numCapVertices
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5461395054491908485, guid: e2cf3149d6c1a5c4ea9ec4f455a0b518, type: 3}
+      propertyPath: m_Parameters.numCornerVertices
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 8177044844279544783, guid: e2cf3149d6c1a5c4ea9ec4f455a0b518, type: 3}
       propertyPath: m_Name
