@@ -6,7 +6,7 @@ public class EnemySpawner : MonoBehaviour
     [SerializeField] private Enemy _enemy;
     [SerializeField] private float _spawnSpeed;
 
-    void Start()
+    void OnEnable()
     {
         StartCoroutine(SpawnEnemies());
     }
