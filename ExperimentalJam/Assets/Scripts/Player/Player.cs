@@ -52,7 +52,7 @@ public class Player : MonoBehaviour, IDamageable
     {
         if(_readyToAttack)
         {
-            OnAttackCooldown?.Invoke(_stats.GetStat(Stats.StatModifier.COOLDOWN));
+            OnAttackCooldown?.Invoke(_stats.GetStat(StatModifier.COOLDOWN));
             
             _weapon.Attack(transform, direction);
 
@@ -64,7 +64,7 @@ public class Player : MonoBehaviour, IDamageable
     {
         _readyToAttack = false;
 
-        yield return new WaitForSeconds(_stats.GetStat(Stats.StatModifier.COOLDOWN));
+        yield return new WaitForSeconds(_stats.GetStat(StatModifier.COOLDOWN));
 
         _readyToAttack = true;
     }
@@ -73,5 +73,10 @@ public class Player : MonoBehaviour, IDamageable
     {
         _coins += coins;
         OnCoinsUpdate?.Invoke(_coins);
+    }
+
+    public Stats GetStats()
+    {
+        return _stats;
     }
 }

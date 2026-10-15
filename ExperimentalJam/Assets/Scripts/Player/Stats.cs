@@ -2,15 +2,6 @@ using UnityEngine;
 
 public class Stats : MonoBehaviour
 {
-    public enum StatModifier
-    {
-        DAMAGE,
-        SPEED,
-        SIZE,
-        DURATION,
-        COOLDOWN
-    }
-
     [SerializeField] private int _damage = 1;
     [SerializeField] private float _speed = 1;
     [SerializeField] private float _size = 1;

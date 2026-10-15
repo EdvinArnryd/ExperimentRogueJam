@@ -14,10 +14,10 @@ public class Weapon : MonoBehaviour
         Quaternion rotation = Quaternion.Euler(0, 0, angle);
 
         Projectile projectile = Instantiate(_projectilePrefab, playerTransform.position, rotation);
-        projectile.SetupProjectile(Mathf.RoundToInt(_stats.GetStat(Stats.StatModifier.DAMAGE)),
-                                    _stats.GetStat(Stats.StatModifier.SPEED),
-                                    _stats.GetStat(Stats.StatModifier.SIZE),
-                                    _stats.GetStat(Stats.StatModifier.DURATION));
+        projectile.SetupProjectile(Mathf.RoundToInt(_stats.GetStat(StatModifier.DAMAGE)),
+                                    _stats.GetStat(StatModifier.SPEED),
+                                    _stats.GetStat(StatModifier.SIZE),
+                                    _stats.GetStat(StatModifier.DURATION));
                                     
         projectile.SetDirection(direction);
     }
