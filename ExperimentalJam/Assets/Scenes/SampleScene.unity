@@ -2041,8 +2041,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 97a156f75eab0b644b8bf82fae220638, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _waveDuration: 5
-  _pauseDuration: 2
+  _waveDuration: 20
+  _pauseDuration: 1
   _enemySpawners:
   - {fileID: 269636496}
   - {fileID: 1568289455}
@@ -2423,6 +2423,17 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1294425485}
   m_CullTransparentMesh: 1
+--- !u!114 &1432585442 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 6307499051500687705, guid: e2cf3149d6c1a5c4ea9ec4f455a0b518, type: 3}
+  m_PrefabInstance: {fileID: 8426581840276675570}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9b6a134dd1fc1b7428c9db57d7ea0e0e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1441492664
 GameObject:
   m_ObjectHideFlags: 0
@@ -13342,6 +13353,10 @@ PrefabInstance:
       propertyPath: _enemy
       value: 
       objectReference: {fileID: 4050486582197721520, guid: e50fce5c04c20094aaeedb3fa257bfe2, type: 3}
+    - target: {fileID: 3890577123059350100, guid: c67f821925bbbff41bd550b71b0d5e06, type: 3}
+      propertyPath: _spawnSpeed
+      value: 0.4
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -13355,6 +13370,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1573325388727644810, guid: e2cf3149d6c1a5c4ea9ec4f455a0b518, type: 3}
+      propertyPath: _stats
+      value: 
+      objectReference: {fileID: 1432585442}
     - target: {fileID: 4244904066284456998, guid: e2cf3149d6c1a5c4ea9ec4f455a0b518, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -13395,21 +13414,17 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 5461395054491908485, guid: e2cf3149d6c1a5c4ea9ec4f455a0b518, type: 3}
-      propertyPath: m_Parameters.textureMode
-      value: 3
-      objectReference: {fileID: 0}
-    - target: {fileID: 5461395054491908485, guid: e2cf3149d6c1a5c4ea9ec4f455a0b518, type: 3}
-      propertyPath: 'm_Materials.Array.data[0]'
-      value: 
-      objectReference: {fileID: -876546973899608171, guid: b6690a61e063798499895ae55290be86, type: 3}
-    - target: {fileID: 5461395054491908485, guid: e2cf3149d6c1a5c4ea9ec4f455a0b518, type: 3}
-      propertyPath: m_Parameters.numCapVertices
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 5461395054491908485, guid: e2cf3149d6c1a5c4ea9ec4f455a0b518, type: 3}
-      propertyPath: m_Parameters.numCornerVertices
+    - target: {fileID: 6307499051500687705, guid: e2cf3149d6c1a5c4ea9ec4f455a0b518, type: 3}
+      propertyPath: _size
       value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 6307499051500687705, guid: e2cf3149d6c1a5c4ea9ec4f455a0b518, type: 3}
+      propertyPath: _speed
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 6307499051500687705, guid: e2cf3149d6c1a5c4ea9ec4f455a0b518, type: 3}
+      propertyPath: _cooldown
+      value: 0.5
       objectReference: {fileID: 0}
     - target: {fileID: 8177044844279544783, guid: e2cf3149d6c1a5c4ea9ec4f455a0b518, type: 3}
       propertyPath: m_Name

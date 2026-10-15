@@ -19,10 +19,23 @@ public class WaveIndicator : MonoBehaviour
     private void PopUpWaveNumber(int waveNumber)
     {
         _text.text = waveNumber.ToString();
-
-        _color.a = 1f;
-        _text.color = _color;
         
+        StartCoroutine(FadeInNumberRoutine());
+    }
+
+    private IEnumerator FadeInNumberRoutine()
+    {
+        float alphaReduction = 1f / _fadeDuration;
+
+        float timer = Time.time;
+        while(Time.time - timer < _fadeDuration)
+        {
+            _color.a += alphaReduction * Time.deltaTime;
+            _text.color = _color;
+
+            yield return null;
+        }
+
         StartCoroutine(PopUpWaveNumberRoutine());
     }
 
@@ -30,10 +43,10 @@ public class WaveIndicator : MonoBehaviour
     {
         yield return new WaitForSeconds(_visibleDuration);
 
-        StartCoroutine(FadeNumberRoutine());
+        StartCoroutine(FadeOutNumberRoutine());
     }
 
-    private IEnumerator FadeNumberRoutine()
+    private IEnumerator FadeOutNumberRoutine()
     {
         float alphaReduction = 1f / _fadeDuration;
 

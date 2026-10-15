@@ -13,11 +13,15 @@ public class Player : MonoBehaviour, IDamageable
     private int _coins;
 
     public event Action<int> OnCoinsUpdate; 
-
-    //Attack
-    [SerializeField] private float _attackCooldown = 1f;
     private bool _readyToAttack = true;
     public event Action<float> OnAttackCooldown;
+
+    private Stats _stats;
+
+    void Awake()
+    {
+        _stats = GetComponent<Stats>();
+    }
 
     public void TakeDamage(int damage)
     {
@@ -48,7 +52,7 @@ public class Player : MonoBehaviour, IDamageable
     {
         if(_readyToAttack)
         {
-            OnAttackCooldown?.Invoke(_attackCooldown);
+            OnAttackCooldown?.Invoke(_stats.GetStat(Stats.StatModifier.COOLDOWN));
             
             _weapon.Attack(transform, direction);
 
@@ -60,7 +64,7 @@ public class Player : MonoBehaviour, IDamageable
     {
         _readyToAttack = false;
 
-        yield return new WaitForSeconds(_attackCooldown);
+        yield return new WaitForSeconds(_stats.GetStat(Stats.StatModifier.COOLDOWN));
 
         _readyToAttack = true;
     }

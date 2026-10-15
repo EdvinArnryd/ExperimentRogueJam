@@ -14,6 +14,8 @@ GameObject:
   - component: {fileID: 3491612846821777233}
   - component: {fileID: 1609745351481549109}
   - component: {fileID: 6349693157414027789}
+  - component: {fileID: 1573325388727644810}
+  - component: {fileID: 6307499051500687705}
   m_Layer: 0
   m_Name: NewPlayer
   m_TagString: Player
@@ -142,7 +144,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _health: {fileID: 6349693157414027789}
-  _weapon: {fileID: 2074262760167842676, guid: cfdabcd12ff56714685ebd4ed83fa4de, type: 3}
+  _weapon: {fileID: 1573325388727644810}
   _damageFlash: {fileID: 1932512029467520728}
   _attackCooldown: 1
 --- !u!114 &6349693157414027789
@@ -158,6 +160,31 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _maxHealth: 6
+--- !u!114 &1573325388727644810
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8177044844279544783}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d17c9c52b127da14f9ccc5cd23b86d24, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _projectilePrefab: {fileID: 5305681143674928416, guid: 07213236e93673042916e7297f4b740f, type: 3}
+--- !u!114 &6307499051500687705
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8177044844279544783}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9b6a134dd1fc1b7428c9db57d7ea0e0e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &8606558313890355474
 GameObject:
   m_ObjectHideFlags: 0
@@ -5174,7 +5201,7 @@ TrailRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 0}
+  - {fileID: -876546973899608171, guid: b6690a61e063798499895ae55290be86, type: 3}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -5254,10 +5281,10 @@ TrailRenderer:
       m_ColorSpace: 0
       m_NumColorKeys: 2
       m_NumAlphaKeys: 2
-    numCornerVertices: 0
-    numCapVertices: 0
+    numCornerVertices: 10
+    numCapVertices: 1
     alignment: 0
-    textureMode: 0
+    textureMode: 3
     textureScale: {x: 1, y: 1}
     shadowBias: 0.5
     generateLightingData: 0

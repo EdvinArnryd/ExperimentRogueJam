@@ -4,9 +4,10 @@ using UnityEngine;
 public class Projectile : MonoBehaviour
 {
     [Header("Projectile Alive Variables")]
-    [SerializeField] private float _moveSpeed;
-    [SerializeField] private float _lifeTime;
     [SerializeField] private int _damage;
+    [SerializeField] private float _moveSpeed;
+    [SerializeField] private float _size;
+    [SerializeField] private float _duration;
     [SerializeField] private bool _isPlayerProjectile;
 
     [Header("Projectile Dead Variables")]
@@ -36,6 +37,22 @@ public class Projectile : MonoBehaviour
             _rotationSpeed * Time.deltaTime
         ) * _direction;
     }
+
+    public void SetupProjectile(int damage, float speed, float size, float duration)
+    {
+        _damage = damage;
+        _moveSpeed = speed;
+        _size = size;
+        _duration = duration;
+
+        SetSize();
+    }
+
+    private void SetSize()
+    {
+        transform.localScale = new Vector3(_size, _size, _size);
+        _trail.startWidth *= _size;
+    }
     
     void OnTriggerEnter2D(Collider2D collision)
     {
@@ -49,8 +66,6 @@ public class Projectile : MonoBehaviour
         {
             damageable.TakeDamage(_damage);
         }
-        
-        //Destroy(gameObject);
     }
 
     public void SetDirection(Vector2 direction)
@@ -61,7 +76,7 @@ public class Projectile : MonoBehaviour
     private IEnumerator DestroyProjectile()
     {
         float elapsedTime = 0f;
-        while(elapsedTime < _lifeTime)
+        while(elapsedTime < _duration)
         {
             elapsedTime += Time.deltaTime;
 

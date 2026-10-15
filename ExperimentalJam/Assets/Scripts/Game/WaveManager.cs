@@ -16,7 +16,7 @@ public class WaveManager : MonoBehaviour
 
     void Start()
     {
-        StartNewWave();
+        StartCoroutine(TickPauseRoutine());
     }
 
     private void StartNewWave()
