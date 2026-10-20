@@ -16,7 +16,7 @@ public class Player : MonoBehaviour, IDamageable
     private bool _readyToAttack = true;
     public event Action<float> OnAttackCooldown;
 
-    private Stats _stats;
+    public Stats _stats;
 
     void Awake()
     {

@@ -32,12 +32,12 @@ public class CardAnimation : MonoBehaviour, IPointerEnterHandler, IPointerExitHa
         float angleIncrement = _animationAngle / _animationSpeed;
         float growthIncrement = _animationGrowth / _animationSpeed;
 
-        float timer = Time.time;
-        while(Time.time - timer < _animationSpeed)
+        float timer = Time.unscaledTime;
+        while(Time.unscaledTime - timer < _animationSpeed)
         {
-            transform.localScale = transform.localScale + new Vector3(growthIncrement * Time.deltaTime, growthIncrement * Time.deltaTime, 0);
+            transform.localScale = transform.localScale + new Vector3(growthIncrement * Time.unscaledDeltaTime, growthIncrement * Time.unscaledDeltaTime, 0);
 
-            transform.Rotate(0,0, angleIncrement * Time.deltaTime);
+            transform.Rotate(0,0, angleIncrement * Time.unscaledDeltaTime);
 
             yield return null;
         }
@@ -48,12 +48,12 @@ public class CardAnimation : MonoBehaviour, IPointerEnterHandler, IPointerExitHa
         float angleIncrement = _animationAngle / _animationSpeed;
         float growthIncrement = _animationGrowth / _animationSpeed;
 
-        float timer = Time.time;
-        while(Time.time - timer < _animationSpeed)
+        float timer = Time.unscaledTime;
+        while(Time.unscaledTime - timer < _animationSpeed)
         {
-            transform.localScale = transform.localScale - new Vector3(growthIncrement * Time.deltaTime, growthIncrement * Time.deltaTime, 0);
+            transform.localScale = transform.localScale - new Vector3(growthIncrement * Time.unscaledDeltaTime, growthIncrement * Time.unscaledDeltaTime, 0);
 
-            transform.Rotate(0,0, -angleIncrement * Time.deltaTime);
+            transform.Rotate(0,0, -angleIncrement * Time.unscaledDeltaTime);
 
             yield return null;
         }

@@ -4924,7 +4924,8 @@ MonoBehaviour:
   _health: {fileID: 601377780753452283}
   _collisionDamage: 1
   _damageFlash: {fileID: 6022937270800094645}
-  _pickup: {fileID: 1830436376250296279, guid: 080d319874aa82c4da28aedd3cee35ec, type: 3}
+  _coinPickup: {fileID: 1830436376250296279, guid: 080d319874aa82c4da28aedd3cee35ec, type: 3}
+  _itemPickup: {fileID: 96791910065947774, guid: 0f92091dde4e4434ba35434d83047a07, type: 3}
 --- !u!114 &601377780753452283
 MonoBehaviour:
   m_ObjectHideFlags: 0
