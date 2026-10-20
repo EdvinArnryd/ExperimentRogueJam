@@ -7,6 +7,7 @@ public class Card : MonoBehaviour, IPointerClickHandler
 {
     [SerializeField] private TMP_Text _title;
     [SerializeField] private TMP_Text _description;
+    [SerializeField] private Image _sprite;
 
     private StatModifier _statModifier;
     private float _statIncrease;
@@ -17,13 +18,14 @@ public class Card : MonoBehaviour, IPointerClickHandler
         _image = gameObject.GetComponent<Image>();
     }
 
-    public void SetCardValues(Color color, string title, StatModifier modifier, float multiplier)
+    public void SetCardValues(Color color, string title, StatModifier modifier, float multiplier, Sprite sprite)
     {
         _image.color = color;
         _title.text = title;
         _description.text = "x " + multiplier.ToString();
         _statIncrease = multiplier;
         _statModifier = modifier;
+        _sprite.sprite = sprite;
     }
 
     public (StatModifier modifier, float multiplier) GetStatValues()

@@ -1,4 +1,6 @@
+using System;
 using System.Collections.Generic;
+using Random = UnityEngine.Random;
 using UnityEngine;
 
 public class StatGenerator : MonoBehaviour
@@ -13,6 +15,13 @@ public class StatGenerator : MonoBehaviour
     [SerializeField] float _durationBase = 0.3f;
     [SerializeField] float _sizeBase = 0.3f;
     [SerializeField] float _speedBase = 0.3f;
+    
+    [Header("Stat Sprites")]
+    [SerializeField] Sprite _cooldownSprite;
+    [SerializeField] Sprite _damageSprite;
+    [SerializeField] Sprite _durationSprite;
+    [SerializeField] Sprite _sizeSprite;
+    [SerializeField] Sprite _speedSprite;
 
     [Header("Color Picker")]
     [SerializeField] Color _commonColor;
@@ -28,48 +37,54 @@ public class StatGenerator : MonoBehaviour
     [SerializeField] float _epicMultiplier = 3.3f;
     [SerializeField] float _legendaryMultiplier = 5;
 
-    private (StatModifier stat, float statBaseMultiplier, string type) GenerateStat()
+    private (StatModifier stat, float statBaseMultiplier, string type, Sprite sprite) GenerateStat(StatModifier state)
     {
         StatModifier stat;
         float statBaseMultiplier;
         string type;
+        Sprite sprite;
 
-        int random = Random.Range(1,6);
-        switch(random)
+        switch(state)
         {
-            case 1:
+            case StatModifier.COOLDOWN:
                 stat = StatModifier.COOLDOWN;
                 statBaseMultiplier = _cooldownBase;
                 type = "Cooldown";
+                sprite = _cooldownSprite;
                 break;
-            case 2:
+            case StatModifier.DAMAGE:
                 stat = StatModifier.DAMAGE;
                 statBaseMultiplier = _damageBase;
                 type = "Damage";
+                sprite = _damageSprite;
                 break;
-            case 3:
+            case StatModifier.DURATION:
                 stat = StatModifier.DURATION;
                 statBaseMultiplier = _durationBase;
                 type = "Duration";
+                sprite = _durationSprite;
                 break;
-            case 4:
+            case StatModifier.SIZE:
                 stat = StatModifier.SIZE;
                 statBaseMultiplier = _sizeBase;
                 type = "Size";
+                sprite = _sizeSprite;
                 break;
-            case 5:
+            case StatModifier.SPEED:
                 stat = StatModifier.SPEED;
                 statBaseMultiplier = _speedBase;
                 type = "Speed";
+                sprite = _speedSprite;
                 break;
             default:
-                stat = StatModifier.UNDEFINED;
+                stat = StatModifier.SPEED;
                 statBaseMultiplier = 1;
                 type = "Undefined";
+                sprite = _cooldownSprite;
                 break;
         }
 
-        return (stat, statBaseMultiplier, type);
+        return (stat, statBaseMultiplier, type, sprite);
     }
 
     private (Rarity rarity, Color color, float multiplier) GenerateRarity()
@@ -115,15 +130,37 @@ public class StatGenerator : MonoBehaviour
 
         return (rarity, color, multiplier);
     }
+    
+    private List<StatModifier> GenerateStatList()
+    {
+        List<StatModifier> list =  new List<StatModifier>();
+        foreach(StatModifier type in Enum.GetValues(typeof(StatModifier)))
+        {
+            list.Add(type);
+        }
+
+        return list;
+    }
+
+    private StatModifier GetRandomStatModifier(List<StatModifier> list)
+    {
+        int random = Random.Range(0, list.Count);
+        StatModifier stat = list[random];
+        list.Remove(stat);
+        return stat;
+    } 
 
     public void UpdateCards()
     {
+        List<StatModifier> statList = GenerateStatList();
         foreach(Card card in _cards)
         {
-            var rarity = GenerateRarity();
-            var stat = GenerateStat();
+            var currentStatType = GetRandomStatModifier(statList);
+            var stat = GenerateStat(currentStatType);
 
-            card.SetCardValues(rarity.color, stat.type, stat.stat, stat.statBaseMultiplier * rarity.multiplier);
+            var rarity = GenerateRarity();
+
+            card.SetCardValues(rarity.color, stat.type, stat.stat, stat.statBaseMultiplier * rarity.multiplier, stat.sprite);
         }
     }
 }

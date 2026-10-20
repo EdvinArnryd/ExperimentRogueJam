@@ -11,10 +11,16 @@ public class CardAnimation : MonoBehaviour, IPointerEnterHandler, IPointerExitHa
     private Quaternion _baseRotation;
     private Vector3 _baseVectorScale;
 
-    void Start()
+    void Awake()
     {
         _baseRotation = transform.rotation;
         _baseVectorScale = transform.localScale;
+    }
+
+    void OnEnable()
+    {
+        transform.rotation = _baseRotation;
+        transform.localScale = _baseVectorScale;
     }
 
     public void OnPointerEnter(PointerEventData eventData)

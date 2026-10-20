@@ -606,6 +606,11 @@ MonoBehaviour:
   _durationBase: 0.3
   _sizeBase: 0.3
   _speedBase: 0.3
+  _cooldownSprite: {fileID: 1976708476746671182, guid: 5b0d0febfff208d469b0569b59ee3710, type: 3}
+  _damageSprite: {fileID: -1143173064917871634, guid: 5b0d0febfff208d469b0569b59ee3710, type: 3}
+  _durationSprite: {fileID: -3080023278800156720, guid: 5b0d0febfff208d469b0569b59ee3710, type: 3}
+  _sizeSprite: {fileID: 1730889299519279947, guid: 5b0d0febfff208d469b0569b59ee3710, type: 3}
+  _speedSprite: {fileID: 4481688978213388326, guid: 5b0d0febfff208d469b0569b59ee3710, type: 3}
   _commonColor: {r: 0.6698113, g: 0.6698113, b: 0.6698113, a: 1}
   _unCommonColor: {r: 0, g: 0.49656248, b: 1, a: 1}
   _rareColor: {r: 1, g: 0.1745283, b: 0.82195705, a: 1}
@@ -2591,7 +2596,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1081381502}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 30649d3a9faa99c48a7b1166b86bf2a0, type: 3}
   m_Name: 

@@ -4,6 +4,5 @@ public enum StatModifier
     SPEED,
     SIZE,
     DURATION,
-    COOLDOWN,
-    UNDEFINED
+    COOLDOWN
 }
