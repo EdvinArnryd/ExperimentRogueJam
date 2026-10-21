@@ -35,7 +35,7 @@ public class Card : MonoBehaviour, IPointerClickHandler
 
     public void OnPointerClick(PointerEventData eventData)
     {
-        GameManager.Instance.Player._stats.ImproveStats(_statModifier, _statIncrease);
+        GameManager.Instance.Player.GetStats().ImproveStats(_statModifier, _statIncrease);
         GameManager.Instance.PauseManager.ExitLevelUp();
     }
 }

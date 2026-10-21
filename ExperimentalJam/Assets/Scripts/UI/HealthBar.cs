@@ -4,13 +4,14 @@ using UnityEngine.UI;
 
 public class HealthBar : MonoBehaviour
 {
-    [SerializeField] private Health _health;
     [SerializeField] private Slider _slider;
 
     private int _maxHealth;
+    private Health _health;
 
     void Start()
     {
+        _health = GameManager.Instance.Player.GetComponent<Health>();
         _maxHealth = _health.GetHealth();
         _health.OnHealthUpdate += UpdateHealthBar;
     }

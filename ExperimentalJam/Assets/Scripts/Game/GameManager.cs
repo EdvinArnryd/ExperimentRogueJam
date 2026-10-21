@@ -4,8 +4,8 @@ public class GameManager : MonoBehaviour
 {
     public static GameManager Instance { get; private set; }
 
-    [SerializeField] public Player Player;
-    [SerializeField] public PlayerController PlayerController;
+    public Player Player;
+    public PlayerController PlayerController;
     [SerializeField] public WaveManager WaveManager;
     [SerializeField] public StatGenerator StatGenerator;
     [SerializeField] public PauseManager PauseManager;
@@ -20,5 +20,8 @@ public class GameManager : MonoBehaviour
         {
             Instance = this;
         }
+
+        Player = Instantiate(PlayerToLoad.Player);
+        PlayerController = Player.GetComponent<PlayerController>();
     }
 }

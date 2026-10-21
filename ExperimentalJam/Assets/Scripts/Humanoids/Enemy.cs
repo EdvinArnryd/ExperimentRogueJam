@@ -33,7 +33,7 @@ public class Enemy : MonoBehaviour, IDamageable
 
     private Pickup GeneratePickup()
     {
-        int random = Random.Range(1,3);
+        int random = Random.Range(1,10);
         switch(random)
         {
             case > 1:

@@ -38,6 +38,10 @@ public class CharacterSelectButton : MonoBehaviour, IPointerEnterHandler, IPoint
     public void OnSelect(BaseEventData eventData)
     {
         _buttonImage.color = _selectedColor;
+
+        PlayerToLoad.Player = _selectedPlayer;
+
+        SceneLoader.Instance.LoadGameScene();
     }
 
     public void OnDeselect(BaseEventData eventData)

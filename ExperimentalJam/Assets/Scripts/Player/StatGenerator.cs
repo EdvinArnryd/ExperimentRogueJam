@@ -30,6 +30,13 @@ public class StatGenerator : MonoBehaviour
     [SerializeField] Color _epicColor;
     [SerializeField] Color _legendaryColor;
 
+    [Header("Rarity Thresholds")]
+    [SerializeField] const int _commonThreshold = 50;
+    [SerializeField] const int _uncommonThreshold = 20;
+    [SerializeField] const int _rareThreshold = 10;
+    [SerializeField] const int _epicThreshold = 4;
+    [SerializeField] const int _legendaryThreshold = 1;
+
     [Header("Rarity Multipliers")]
     [SerializeField] float _commonMultiplier = 1;
     [SerializeField] float _uncommonMultiplier = 1.5f;
@@ -96,27 +103,27 @@ public class StatGenerator : MonoBehaviour
         int random = Random.Range(1,100);
         switch(random)
         {
-            case >=60:
+            case >= _commonThreshold:
                 rarity = Rarity.COMMON;
                 color = _commonColor;
                 multiplier = _commonMultiplier;
                 break;
-            case >=30:
+            case >= _uncommonThreshold:
                 rarity = Rarity.UNCOMMON;
                 color = _unCommonColor;
                 multiplier = _uncommonMultiplier;
                 break;
-            case >=15:
+            case >= _rareThreshold:
                 rarity = Rarity.RARE;
                 color = _rareColor;
                 multiplier = _rareMultiplier;
                 break;
-            case >=5:
+            case >= _epicThreshold:
                 rarity = Rarity.EPIC;
                 color = _epicColor;
                 multiplier = _epicMultiplier;
                 break;
-            case >=1:
+            case >= _legendaryThreshold:
                 rarity = Rarity.LEGENDARY;
                 color = _legendaryColor;
                 multiplier = _legendaryMultiplier;

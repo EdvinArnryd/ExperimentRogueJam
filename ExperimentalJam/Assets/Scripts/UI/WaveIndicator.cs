@@ -58,6 +58,8 @@ public class WaveIndicator : MonoBehaviour
 
             yield return null;
         }
+        _color.a = 0;
+        _text.color = _color;
     }
     
 }
