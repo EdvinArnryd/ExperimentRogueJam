@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 
 public class GameManager : MonoBehaviour
@@ -10,6 +11,9 @@ public class GameManager : MonoBehaviour
     [SerializeField] public StatGenerator StatGenerator;
     [SerializeField] public PauseManager PauseManager;
 
+    [Header("For Debugging")]
+    [SerializeField] private Player defaultPlayer;
+
     private void Awake()
     {
         if(Instance != null && Instance != this)
@@ -21,7 +25,17 @@ public class GameManager : MonoBehaviour
             Instance = this;
         }
 
-        Player = Instantiate(PlayerToLoad.Player);
-        PlayerController = Player.GetComponent<PlayerController>();
+        if(PlayerToLoad.Player != null)
+        {
+            // Keep this as final solution
+            Player = Instantiate(PlayerToLoad.Player);
+            PlayerController = Player.GetComponent<PlayerController>();
+        }
+        else
+        {
+            // For debugging only
+            Player = Instantiate(defaultPlayer);
+            PlayerController = Player.GetComponent<PlayerController>();
+        }
     }
 }

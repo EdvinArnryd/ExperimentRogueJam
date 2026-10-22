@@ -11,16 +11,18 @@ public class Player : MonoBehaviour, IDamageable
     [SerializeField] private DamageFlash _damageFlash;
 
     private int _coins;
-
     public event Action<int> OnCoinsUpdate; 
     private bool _readyToAttack = true;
     public event Action<float> OnAttackCooldown;
+
+    private XPComponent _xpComponent;
 
     private Stats _stats;
 
     void Awake()
     {
         _stats = GetComponent<Stats>();
+        _xpComponent = GetComponent<XPComponent>();
     }
 
     public void TakeDamage(int damage)
@@ -73,6 +75,16 @@ public class Player : MonoBehaviour, IDamageable
     {
         _coins += coins;
         OnCoinsUpdate?.Invoke(_coins);
+    }
+
+    // public void GainXP(float xp)
+    // {
+    //     _xpComponent.GainXP(xp);
+    // }
+
+    public XPComponent GetXPComponent()
+    {
+        return _xpComponent;
     }
 
     public Stats GetStats()
