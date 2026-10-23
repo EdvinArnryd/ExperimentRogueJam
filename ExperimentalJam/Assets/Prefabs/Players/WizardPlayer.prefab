@@ -146,7 +146,6 @@ MonoBehaviour:
   _health: {fileID: 2334729753873139793}
   _weapon: {fileID: 7436084821694969813}
   _damageFlash: {fileID: 7694074062098376680}
-  _stats: {fileID: 0}
 --- !u!114 &2334729753873139793
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5104,7 +5103,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 1
+  m_SortingOrder: 2
   m_Sprite: {fileID: -6678003208251979901, guid: 5b0d0febfff208d469b0569b59ee3710, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
