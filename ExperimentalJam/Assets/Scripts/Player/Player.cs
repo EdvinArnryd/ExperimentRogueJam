@@ -25,6 +25,11 @@ public class Player : MonoBehaviour, IDamageable
         _xpComponent = GetComponent<XPComponent>();
     }
 
+    void Start()
+    {
+        _health.OnDeath += OnDeath;
+    }
+
     public void TakeDamage(int damage)
     {
         if(_damageImmune) return;
@@ -48,6 +53,11 @@ public class Player : MonoBehaviour, IDamageable
         }
 
         _damageImmune = false;
+    }
+
+    private void OnDeath()
+    {
+        GameManager.Instance.PauseManager.PlayerDied();
     }
 
     public void Attack(Vector2 direction)
@@ -76,11 +86,6 @@ public class Player : MonoBehaviour, IDamageable
         _coins += coins;
         OnCoinsUpdate?.Invoke(_coins);
     }
-
-    // public void GainXP(float xp)
-    // {
-    //     _xpComponent.GainXP(xp);
-    // }
 
     public XPComponent GetXPComponent()
     {

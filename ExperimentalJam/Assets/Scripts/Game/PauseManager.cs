@@ -6,9 +6,15 @@ public class PauseManager : MonoBehaviour
     [SerializeField] private GameObject _levelUpMenu;
     [SerializeField] private GameObject _pauseMenu;
     [SerializeField] private GameObject _deathMenu;
+    [SerializeField] private GameObject _gameplayUI;
 
     public event Action<bool> OnPauseGame;
     public event Action<bool> OnStartGame;
+
+    void Start()
+    {
+        StartGame();
+    }
 
     private void PauseGame()
     {
@@ -20,6 +26,8 @@ public class PauseManager : MonoBehaviour
     {
         OnStartGame?.Invoke(false);
         Time.timeScale = 1;
+        _deathMenu.SetActive(false);
+        _gameplayUI.SetActive(true);
     }
 
     public void LevelUp()
@@ -32,5 +40,12 @@ public class PauseManager : MonoBehaviour
     {
         StartGame();
         _levelUpMenu.SetActive(false);
+    }
+
+    public void PlayerDied()
+    {
+        _deathMenu.SetActive(true);
+        _gameplayUI.SetActive(false);
+        PauseGame();
     }
 }
