@@ -44,8 +44,8 @@ public class PauseManager : MonoBehaviour
 
     public void PlayerDied()
     {
-        _deathMenu.SetActive(true);
-        _gameplayUI.SetActive(false);
         PauseGame();
+        _gameplayUI.SetActive(false);
+        _deathMenu.SetActive(true);
     }
 }

@@ -31,7 +31,8 @@ public class EnemyController : MonoBehaviour
 
     void Update()
     {
-        _agent.SetDestination(_target.transform.position);
+        if(_target != null)
+            _agent.SetDestination(_target.transform.position);
         RotateCharacter();
     }
 
