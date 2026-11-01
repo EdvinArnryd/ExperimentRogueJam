@@ -58,6 +58,7 @@ public class Player : MonoBehaviour, IDamageable
     private void OnDeath()
     {
         GameManager.Instance.PauseManager.PlayerDied();
+        Destroy(gameObject);
     }
 
     public void Attack(Vector2 direction)
