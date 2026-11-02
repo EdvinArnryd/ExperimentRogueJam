@@ -6,7 +6,9 @@ public class XPPickup : Pickup
     public override void PickUp(Player player)
     {
         player.GetXPComponent().GainXP(_xpAmount);
-
+        
+        GameManager.Instance.GameResultsManager.GainXP(_xpAmount);
+        
         DestroyPickup();
     }
 }

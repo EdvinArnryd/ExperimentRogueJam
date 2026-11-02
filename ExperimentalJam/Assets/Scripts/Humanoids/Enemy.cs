@@ -47,6 +47,8 @@ public class Enemy : MonoBehaviour, IDamageable
     
     private void SpawnPickup()
     {
+        GameManager.Instance.GameResultsManager.MonsterKilled();
+        
         Instantiate(GeneratePickup(), transform.position, Quaternion.identity);
     }
 }

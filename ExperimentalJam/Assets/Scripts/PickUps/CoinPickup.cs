@@ -7,7 +7,9 @@ public class CoinPickup : Pickup
     public override void PickUp(Player player)
     {
         player.AddCoin(_coinAmount);
-
+        
+        GameManager.Instance.GameResultsManager.GainGold(_coinAmount);
+        
         DestroyPickup();
     }
 }

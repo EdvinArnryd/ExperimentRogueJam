@@ -10,6 +10,7 @@ public class GameManager : MonoBehaviour
     [SerializeField] public WaveManager WaveManager;
     [SerializeField] public StatGenerator StatGenerator;
     [SerializeField] public PauseManager PauseManager;
+    [SerializeField] public GameResultsManager GameResultsManager;
 
     [Header("For Debugging")]
     [SerializeField] private Player defaultPlayer;
