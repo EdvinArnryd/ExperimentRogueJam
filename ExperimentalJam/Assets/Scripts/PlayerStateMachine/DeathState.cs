@@ -1,15 +1,19 @@
 using UnityEngine;
 
-public class DeathState : MonoBehaviour
+public class DeathState : State
 {
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
+    public override void Enter(PlayerStateMachine stateMachine)
+    {
+        GameManager.Instance.PauseManager.PlayerDied();
+        stateMachine.SetAnimation("Death");
+    }
+
+    public override void Exit(PlayerStateMachine stateMachine)
     {
         
     }
 
-    // Update is called once per frame
-    void Update()
+    public override void UpdateState(PlayerStateMachine stateMachine)
     {
         
     }

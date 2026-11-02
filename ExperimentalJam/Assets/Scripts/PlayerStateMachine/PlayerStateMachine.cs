@@ -5,14 +5,15 @@ public class PlayerStateMachine : MonoBehaviour
 {
     [SerializeField] private Animator _anim;
     [SerializeField] private PlayerController _playerController;
-    
     [SerializeField] private float _transitionTime = 0.25f;
+    [SerializeField] private Health _health;
 
     private State _currentState;
 
     public IdleState _idleState = new IdleState();
     public RunningState _runningState = new RunningState();
     public DashState _dashingState = new DashState();
+    public DeathState _deathState = new DeathState();
 
     private bool _isMoving;
     private bool _isDashing;
@@ -22,6 +23,7 @@ public class PlayerStateMachine : MonoBehaviour
     {
         _playerController.IsMoving += IsMoving;
         _playerController.IsDashing += IsDashing;
+        _health.OnDeath += EnterDeathState;
 
         _currentState = _idleState;
         _currentState.Enter(this);
@@ -66,5 +68,12 @@ public class PlayerStateMachine : MonoBehaviour
     public void SetAnimation(String animationState)
     {
         _anim.CrossFade(animationState, _transitionTime);
+    }
+
+    private void EnterDeathState()
+    {
+        _currentState?.Exit(this);
+        _currentState = _deathState;
+        _currentState.Enter(this);
     }
 }

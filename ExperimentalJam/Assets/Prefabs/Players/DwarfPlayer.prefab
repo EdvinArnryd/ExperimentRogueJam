@@ -294,7 +294,7 @@ Animator:
   m_Avatar: {fileID: 0}
   m_Controller: {fileID: 9100000, guid: 57da83bb1faa62a4d9ba42d3be276354, type: 2}
   m_CullingMode: 0
-  m_UpdateMode: 0
+  m_UpdateMode: 2
   m_ApplyRootMotion: 0
   m_LinearVelocityBlending: 0
   m_StabilizeFeet: 0
@@ -349,6 +349,7 @@ MonoBehaviour:
   _anim: {fileID: 5820953140852844232}
   _playerController: {fileID: 1735245116219947317}
   _transitionTime: 0.25
+  _health: {fileID: 8889614814603105052}
 --- !u!96 &2204632533241005270
 TrailRenderer:
   serializedVersion: 3
