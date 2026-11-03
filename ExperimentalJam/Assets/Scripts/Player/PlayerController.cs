@@ -30,7 +30,7 @@ public class PlayerController : MonoBehaviour
 
     void Awake()
     {
-        _inputActions = new InputSystem_Actions();
+        _inputActions = GameManager.Instance.InputManager.GetInputActions();
 
         _inputActions.Player.Move.performed += OnMove;
         _inputActions.Player.Move.canceled += OnStopMoving;
@@ -41,16 +41,6 @@ public class PlayerController : MonoBehaviour
         _inputActions.Player.Attack.performed += OnAttack;
 
         _playerDirection = new Vector2(1,0);
-    }
-    
-    private void OnEnable()
-    {
-        _inputActions.Player.Enable();        
-    }
-
-    private void OnDisable()
-    {
-        _inputActions.Player.Disable();       
     }
 
     void Update()

@@ -11,6 +11,7 @@ public class GameManager : MonoBehaviour
     [SerializeField] public StatGenerator StatGenerator;
     [SerializeField] public PauseManager PauseManager;
     [SerializeField] public GameResultsManager GameResultsManager;
+    [SerializeField] public InputManger InputManager;
 
     [Header("For Debugging")]
     [SerializeField] private Player defaultPlayer;
