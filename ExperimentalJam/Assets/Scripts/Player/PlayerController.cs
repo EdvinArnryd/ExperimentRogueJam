@@ -27,8 +27,7 @@ public class PlayerController : MonoBehaviour
     public event Action<bool> IsDashing;
     public event Action<float> OnDashCooldown;
 
-
-    void Awake()
+    void Start()
     {
         _inputActions = GameManager.Instance.InputManager.GetInputActions();
 

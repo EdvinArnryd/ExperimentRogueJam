@@ -20,6 +20,7 @@ public class PauseManager : MonoBehaviour
     {
         OnPauseGame?.Invoke(true);
         Time.timeScale = 0;
+        GameManager.Instance.InputManager.EnableUIMap();
     }
 
     private void StartGame()
@@ -28,6 +29,7 @@ public class PauseManager : MonoBehaviour
         Time.timeScale = 1;
         _deathMenu.SetActive(false);
         _gameplayUI.SetActive(true);
+        GameManager.Instance.InputManager.EnablePlayerMap();
     }
 
     public void LevelUp()

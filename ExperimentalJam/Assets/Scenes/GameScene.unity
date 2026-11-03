@@ -3498,6 +3498,7 @@ MonoBehaviour:
   StatGenerator: {fileID: 329270556}
   PauseManager: {fileID: 977355733}
   GameResultsManager: {fileID: 503390320}
+  InputManager: {fileID: 985825993}
   defaultPlayer: {fileID: 6983886400555007362, guid: 9fa4a87f61d9f594a90c98cf52f1459e, type: 3}
 --- !u!4 &796419415
 Transform:
@@ -4197,6 +4198,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 985825992}
+  - component: {fileID: 985825993}
   m_Layer: 0
   m_Name: InputManager
   m_TagString: Untagged
@@ -4219,6 +4221,18 @@ Transform:
   m_Children: []
   m_Father: {fileID: 796419415}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &985825993
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 985825991}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 03b3f3780dcc3cb488fabdba61a61f88, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &986803182
 GameObject:
   m_ObjectHideFlags: 0

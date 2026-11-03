@@ -2,7 +2,12 @@ using UnityEngine;
 
 public class InputManger : MonoBehaviour
 {
-    [SerializeField] private InputSystem_Actions _inputActions;
+    private InputSystem_Actions _inputActions;
+
+    void Awake()
+    {
+        _inputActions = new InputSystem_Actions();
+    }
 
     private void OnEnable()
     {
@@ -12,10 +17,23 @@ public class InputManger : MonoBehaviour
     private void OnDisable()
     {
         _inputActions.Player.Disable();
+        _inputActions.UI.Disable();
     }
 
     public InputSystem_Actions GetInputActions()
     {
         return _inputActions;
+    }
+
+    public void EnablePlayerMap()
+    {
+        _inputActions.Player.Enable();
+        _inputActions.UI.Disable();
+    }
+
+    public void EnableUIMap()
+    {
+        _inputActions.Player.Disable();
+        _inputActions.UI.Enable();
     }
 }
