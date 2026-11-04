@@ -5,9 +5,6 @@ public class SceneLoader : MonoBehaviour
 {
     public static SceneLoader Instance { get; private set; }
 
-    [SerializeField] private string _menuScene = "MenuScene";
-    [SerializeField] private string _gameScene = "GameScene";
-
     private void Awake()
     {
         if(Instance != null && Instance != this)
@@ -20,13 +17,8 @@ public class SceneLoader : MonoBehaviour
         }
     }
 
-    public void LoadMenuScene()
+    public void LoadSpecificScene(string scene)
     {
-        SceneManager.LoadScene(_menuScene);
-    }
-
-    public void LoadGameScene()
-    {
-        SceneManager.LoadScene(_gameScene);
+        SceneManager.LoadScene(scene);
     }
 }

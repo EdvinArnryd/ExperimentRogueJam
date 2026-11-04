@@ -6,8 +6,17 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
-    path: Assets/Scenes/GameScene.unity
+    path: Assets/Scenes/Graveyard.unity
     guid: 8c9cfa26abfee488c85f1582747f6a02
+  - enabled: 1
+    path: Assets/Scenes/MainMenu.unity
+    guid: 1965ba0ac738c484b8e63138cf3ccbde
+  - enabled: 1
+    path: Assets/Scenes/Burial.unity
+    guid: 0e7c6508f52608f498fc34085e3f356e
+  - enabled: 1
+    path: Assets/Scenes/Lucifer.unity
+    guid: 5d601300b19f23a4db80851b52b287f5
   m_configObjects:
     com.unity.input.settings.actions: {fileID: -944628639613478452, guid: 2bcd2660ca9b64942af0de543d8d7100, type: 3}
   m_UseUCBPForAssetBundles: 0
