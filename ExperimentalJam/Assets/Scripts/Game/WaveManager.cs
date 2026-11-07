@@ -58,4 +58,9 @@ public class WaveManager : MonoBehaviour
             _enemySpawners[i].gameObject.SetActive(true);
         }
     }
+
+    public int GetWaveCount()
+    {
+        return _waveCount;
+    }
 }

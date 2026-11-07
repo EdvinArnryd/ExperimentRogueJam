@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 4139508665948668935}
   - component: {fileID: 1924623869791888892}
   m_Layer: 0
-  m_Name: Skelly
+  m_Name: Character
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -4991,7 +4991,7 @@ GameObject:
   - component: {fileID: 8876500230139069592}
   - component: {fileID: 2688012547241030307}
   m_Layer: 0
-  m_Name: SkellyAI
+  m_Name: MainEnemy
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -5080,7 +5080,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1a0eb0b7220c11840a3f2057699a16f9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _maxHealth: 3
+  _maxHealth: 1
 --- !u!61 &8876500230139069592
 BoxCollider2D:
   m_ObjectHideFlags: 0

@@ -1,0 +1,15 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!221 &22100000
+AnimatorOverrideController:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: OrcTankAnim
+  m_Controller: {fileID: 9100000, guid: e557ed894ecb1304c862f34ee6ac8ae1, type: 2}
+  m_Clips:
+  - m_OriginalClip: {fileID: 7400000, guid: 4839d4522fd2fa345ad6444fc95a0f05, type: 2}
+    m_OverrideClip: {fileID: 7400000, guid: ccca3b6c82fa12949b7f8d4b10a8bd6c, type: 2}
+  - m_OriginalClip: {fileID: 7400000, guid: 16fe6567d74ebf442a59ae7fa1b0b768, type: 2}
+    m_OverrideClip: {fileID: 7400000, guid: d42bc48bd7ab36141b59f5db59f56a9c, type: 2}

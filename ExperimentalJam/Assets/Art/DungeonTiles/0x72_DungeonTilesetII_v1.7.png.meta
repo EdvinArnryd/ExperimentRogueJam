@@ -999,9 +999,9 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 16
-        y: 377
+        y: 400
         width: 96
-        height: 130
+        height: 100
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -3618,7 +3618,7 @@ TextureImporter:
         serializedVersion: 2
         x: 224
         y: 319
-        width: 17
+        width: 16
         height: 23
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
@@ -3638,9 +3638,9 @@ TextureImporter:
       name: 0x72_DungeonTilesetII_v1.7_120
       rect:
         serializedVersion: 2
-        x: 239
+        x: 240
         y: 319
-        width: 18
+        width: 17
         height: 21
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
@@ -5967,28 +5967,6 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: 0x72_DungeonTilesetII_v1.7_226
-      rect:
-        serializedVersion: 2
-        x: 220
-        y: 169
-        width: 10
-        height: 9
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 41667c60b8fb48ca0800000000000000
-      internalID: -6015472598425049580
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
       name: 0x72_DungeonTilesetII_v1.7_227
       rect:
         serializedVersion: 2
@@ -6259,7 +6237,7 @@ TextureImporter:
         x: 54
         y: 143
         width: 20
-        height: 22
+        height: 29
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -6270,28 +6248,6 @@ TextureImporter:
       bones: []
       spriteID: 853845a923550c0d0800000000000000
       internalID: -3404627642466139304
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: 0x72_DungeonTilesetII_v1.7_240
-      rect:
-        serializedVersion: 2
-        x: 60
-        y: 164
-        width: 11
-        height: 8
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 1796f451a664e1170800000000000000
-      internalID: 8151029797025180017
       vertices: []
       indices: 
       edges: []
@@ -6369,7 +6325,7 @@ TextureImporter:
         x: 213
         y: 143
         width: 21
-        height: 27
+        height: 35
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
