@@ -57208,7 +57208,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 97a156f75eab0b644b8bf82fae220638, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _waveDuration: 60
+  _waveDuration: 5
   _pauseDuration: 1
   _enemySpawners:
   - {fileID: 504089414}
@@ -59822,7 +59822,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &1640778850
 Transform:
   m_ObjectHideFlags: 0

@@ -11,9 +11,9 @@ public class EnemySpawner : MonoBehaviour
     [SerializeField] private List<Enemy> _highEnemies;
     [SerializeField] private Enemy _tankEnemy;
 
-    [SerializeField] private int _waveToSpawnMedium = 3;
-    [SerializeField] private int _waveToSpawnHigh = 6;
-    [SerializeField] private int _waveToSpawnTank = 9; 
+    // [SerializeField] private int _waveToSpawnMedium = 3;
+    // [SerializeField] private int _waveToSpawnHigh = 6;
+    // [SerializeField] private int _waveToSpawnTank = 9; 
 
     void OnEnable()
     {
@@ -22,30 +22,33 @@ public class EnemySpawner : MonoBehaviour
 
     private IEnumerator SpawnEnemies()
     {
-        Enemy enemy = Instantiate(_tankEnemy, transform.position, Quaternion.identity);
+        Enemy enemy = Instantiate(GenerateEnemy(), transform.position, Quaternion.identity);
 
         yield return new WaitForSeconds(_spawnSpeed);
 
         StartCoroutine(SpawnEnemies());
     }
-/*
+
     private Enemy GenerateEnemy()
     {
-        Enemy enemyToSpawn;
+        Enemy enemyToSpawn = new Enemy();
         int waveCount = GameManager.Instance.WaveManager.GetWaveCount();
 
         switch (waveCount)
         {
-            case < _waveToSpawnMedium:
+            case < 3:
+                enemyToSpawn = _baseEnemies[Random.Range(0, _baseEnemies.Count)];
                 break;
-            case < _waveToSpawnHigh:
+            case < 6:
+                enemyToSpawn = _mediumEnemies[Random.Range(0, _mediumEnemies.Count)];
                 break;
-            case < _waveToSpawnTank:
+            case < 9:
+                enemyToSpawn = _highEnemies[Random.Range(0, _highEnemies.Count)];
                 break;
             default:
+                break;
         }
         
         return enemyToSpawn;
     }
-    */
 }
