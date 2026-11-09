@@ -11,9 +11,17 @@ public class EnemySpawner : MonoBehaviour
     [SerializeField] private List<Enemy> _highEnemies;
     [SerializeField] private Enemy _tankEnemy;
 
-    // [SerializeField] private int _waveToSpawnMedium = 3;
-    // [SerializeField] private int _waveToSpawnHigh = 6;
-    // [SerializeField] private int _waveToSpawnTank = 9; 
+    private List<Enemy> _enemyPool = new List<Enemy>();
+
+    void Awake()
+    {
+        AddEnemiesToPool(_baseEnemies);
+    }
+
+    void Start()
+    {
+        GameManager.Instance.WaveManager.OnUpdateWaveCount += UpdateEnemyPool;
+    }
 
     void OnEnable()
     {
@@ -22,7 +30,7 @@ public class EnemySpawner : MonoBehaviour
 
     private IEnumerator SpawnEnemies()
     {
-        Enemy enemy = Instantiate(GenerateEnemy(), transform.position, Quaternion.identity);
+        Instantiate(GenerateEnemy(), transform.position, Quaternion.identity);
 
         yield return new WaitForSeconds(_spawnSpeed);
 
@@ -31,24 +39,34 @@ public class EnemySpawner : MonoBehaviour
 
     private Enemy GenerateEnemy()
     {
-        Enemy enemyToSpawn = new Enemy();
-        int waveCount = GameManager.Instance.WaveManager.GetWaveCount();
+        return _enemyPool[Random.Range(0, _enemyPool.Count)];
+    }
 
+    private void UpdateEnemyPool(int waveCount)
+    {
         switch (waveCount)
         {
-            case < 3:
-                enemyToSpawn = _baseEnemies[Random.Range(0, _baseEnemies.Count)];
+            case 4:
+                AddEnemiesToPool(_mediumEnemies);
                 break;
-            case < 6:
-                enemyToSpawn = _mediumEnemies[Random.Range(0, _mediumEnemies.Count)];
+            case 8:
+                AddEnemiesToPool(_highEnemies);
                 break;
-            case < 9:
-                enemyToSpawn = _highEnemies[Random.Range(0, _highEnemies.Count)];
+            case 12:
+                _enemyPool.Add(_tankEnemy);
                 break;
             default:
                 break;
         }
-        
-        return enemyToSpawn;
     }
+
+    private void AddEnemiesToPool(List<Enemy> newEnemies)
+    {
+        foreach(Enemy enemy in newEnemies)
+        {
+            _enemyPool.Add(enemy);
+        }
+    }
+
+    
 }

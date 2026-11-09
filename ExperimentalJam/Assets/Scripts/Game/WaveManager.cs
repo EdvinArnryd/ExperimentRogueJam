@@ -21,8 +21,9 @@ public class WaveManager : MonoBehaviour
 
     private void StartNewWave()
     {
+        ActivateAllSpawners();
         _waveCount++;
-        ActivateCurrentSpawners();
+        // ActivateCurrentSpawners();
         OnUpdateWaveCount?.Invoke(_waveCount);
         OnNewWave?.Invoke(_waveDuration);
         StartCoroutine(TickWaveRoutine());
@@ -46,6 +47,14 @@ public class WaveManager : MonoBehaviour
         foreach(EnemySpawner spawner in _enemySpawners)
         {
             spawner.gameObject.SetActive(false);
+        }
+    }
+
+    private void ActivateAllSpawners()
+    {
+        foreach(EnemySpawner spawner in _enemySpawners)
+        {
+            spawner.gameObject.SetActive(true);
         }
     }
 
