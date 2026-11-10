@@ -160,6 +160,8 @@ MonoBehaviour:
   _playerController: {fileID: 454086674454271316}
   _transitionTime: 0.25
   _health: {fileID: 3237936015919196698}
+  _player: {fileID: 5273587084566103779}
+  _spriteRenderer: {fileID: 7111079279549677399}
 --- !u!96 &2902152052289922037
 TrailRenderer:
   serializedVersion: 3

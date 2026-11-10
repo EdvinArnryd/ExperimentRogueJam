@@ -1,20 +1,18 @@
+using System;
 using System.Collections;
 using UnityEngine;
 
 public class DashState : State
 {
-
-    private float _animationSpeed = 0.15f;
-    private float _rotation = 15f;
     public override void Enter(PlayerStateMachine stateMachine)
     {
         stateMachine.SetAnimation("Dash");
-        // stateMachine.StartCoroutine(StartDashing(stateMachine, _animationSpeed, _rotation));
+        stateMachine.GetPlayer().SetImmunity(true);
     }
 
     public override void Exit(PlayerStateMachine stateMachine)
     {
-        // stateMachine.StartCoroutine(StartDashing(stateMachine, _animationSpeed, -_rotation));
+        stateMachine.GetPlayer().SetImmunity(false);
     }
 
     public override void UpdateState(PlayerStateMachine stateMachine)

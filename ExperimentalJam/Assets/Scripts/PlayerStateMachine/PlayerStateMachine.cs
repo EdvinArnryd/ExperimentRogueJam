@@ -7,6 +7,7 @@ public class PlayerStateMachine : MonoBehaviour
     [SerializeField] private PlayerController _playerController;
     [SerializeField] private float _transitionTime = 0.25f;
     [SerializeField] private Health _health;
+    [SerializeField] private Player _player;
 
     private State _currentState;
 
@@ -64,6 +65,11 @@ public class PlayerStateMachine : MonoBehaviour
     {
         return _isDashing;
     }
+
+    public Player GetPlayer()
+    {
+        return _player;
+    } 
 
     public void SetAnimation(String animationState)
     {

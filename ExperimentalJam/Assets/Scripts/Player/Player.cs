@@ -19,6 +19,8 @@ public class Player : MonoBehaviour, IDamageable
 
     private Stats _stats;
 
+    private bool _isImmune = false;
+
     void Awake()
     {
         _stats = GetComponent<Stats>();
@@ -27,6 +29,7 @@ public class Player : MonoBehaviour, IDamageable
 
     public void TakeDamage(int damage)
     {
+        if(_isImmune) return;
         if(_damageImmune) return;
         _health.LoseHealth(damage);
 
@@ -86,5 +89,10 @@ public class Player : MonoBehaviour, IDamageable
     public Stats GetStats()
     {
         return _stats;
+    }
+
+    public void SetImmunity(bool immune)
+    {
+        _isImmune = immune;
     }
 }
