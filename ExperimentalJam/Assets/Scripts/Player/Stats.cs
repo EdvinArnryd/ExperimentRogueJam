@@ -7,6 +7,7 @@ public class Stats : MonoBehaviour
     [SerializeField] private float _size = 1;
     [SerializeField] private float _duration = 1;
     [SerializeField] private float _cooldown = 1;
+    [SerializeField] private int _count = 1;
 
     public void ImproveStats(StatModifier modifier, float value)
     {
@@ -46,6 +47,8 @@ public class Stats : MonoBehaviour
                 return _duration;
             case StatModifier.COOLDOWN:
                 return _cooldown;
+            case StatModifier.COUNT:
+                return _count;
             default:
                 return 1;
         }

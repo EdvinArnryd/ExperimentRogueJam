@@ -191,6 +191,7 @@ MonoBehaviour:
   _size: 1
   _duration: 1.5
   _cooldown: 2
+  _count: 4
 --- !u!114 &2903052398197203629
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -366,7 +367,6 @@ MonoBehaviour:
   _transitionTime: 0.25
   _health: {fileID: 6052927187054504114}
   _player: {fileID: 6983886400555007362}
-  _spriteRenderer: {fileID: 4546394479335635843}
 --- !u!96 &3897400873997139499
 TrailRenderer:
   serializedVersion: 3
