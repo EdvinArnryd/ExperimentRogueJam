@@ -161,7 +161,6 @@ MonoBehaviour:
   _transitionTime: 0.25
   _health: {fileID: 3237936015919196698}
   _player: {fileID: 5273587084566103779}
-  _spriteRenderer: {fileID: 7111079279549677399}
 --- !u!96 &2902152052289922037
 TrailRenderer:
   serializedVersion: 3
@@ -5302,6 +5301,7 @@ MonoBehaviour:
   _size: 0.6
   _duration: 1
   _cooldown: 1.5
+  _count: 3
 --- !u!114 &626038803522337045
 MonoBehaviour:
   m_ObjectHideFlags: 0

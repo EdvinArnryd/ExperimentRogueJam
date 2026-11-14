@@ -191,7 +191,7 @@ MonoBehaviour:
   _size: 1
   _duration: 1.5
   _cooldown: 2
-  _count: 4
+  _count: 3
 --- !u!114 &2903052398197203629
 MonoBehaviour:
   m_ObjectHideFlags: 0
