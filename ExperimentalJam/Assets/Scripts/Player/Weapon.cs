@@ -7,25 +7,16 @@ public class Weapon : MonoBehaviour
 
     public void Attack(Transform playerTransform, Vector2 direction)
     {
+        float angleStep = 360f / _stats.GetStat(StatModifier.COUNT);
+
         for(int i = 1; i <= _stats.GetStat(StatModifier.COUNT); i++)
         {
-            switch(i)
-            {
-                case 1:
-                InitializeProjectile(playerTransform, direction);
-                    break;
-                case 2:
-                InitializeProjectile(playerTransform, direction * -1);
-                    break;
-                case 3:
-                InitializeProjectile(playerTransform, new Vector2(-direction.y, direction.x));
-                    break;
-                case 4:
-                InitializeProjectile(playerTransform, new Vector2(direction.y, -direction.x));
-                    break;
-            }            
+            float angle = angleStep * i;
+
+            Vector2 projectileDirection = Quaternion.Euler(0,0, angle) * direction;
+
+            InitializeProjectile(playerTransform, projectileDirection);
         }        
-        
     }
 
     private void InitializeProjectile(Transform playerTransform, Vector2 direction)
@@ -42,9 +33,4 @@ public class Weapon : MonoBehaviour
 
         projectile.SetDirection(direction);
     }
-
-
-
-
-
 }
