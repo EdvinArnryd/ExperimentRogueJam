@@ -11,6 +11,8 @@ public class WaveManager : MonoBehaviour
 
     [SerializeField] private int _waveCount = 0;
 
+    private static List<Enemy> _enemyList = new List<Enemy>();
+
     public event Action<int> OnUpdateWaveCount;
     public event Action<float> OnNewWave;
 
@@ -71,5 +73,15 @@ public class WaveManager : MonoBehaviour
     public int GetWaveCount()
     {
         return _waveCount;
+    }
+
+    public void AddEnemy(Enemy enemy)
+    {
+        _enemyList.Add(enemy);
+    }
+
+    public List<Enemy> GetEnemies()
+    {
+        return _enemyList;
     }
 }

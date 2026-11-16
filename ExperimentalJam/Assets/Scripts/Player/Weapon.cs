@@ -7,9 +7,9 @@ public class Weapon : MonoBehaviour
 
     public void Attack(Transform playerTransform, Vector2 direction)
     {
-        float angleStep = 360f / _stats.GetStat(StatModifier.COUNT);
+        float angleStep = 360f / _stats.GetCount();
 
-        for(int i = 1; i <= _stats.GetStat(StatModifier.COUNT); i++)
+        for(int i = 1; i <= _stats.GetCount(); i++)
         {
             float angle = angleStep * i;
 

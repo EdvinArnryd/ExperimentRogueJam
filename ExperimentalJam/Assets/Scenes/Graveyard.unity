@@ -54697,6 +54697,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 5412144218558908989, guid: 2c60980a33e791348ac4688a38985c42, type: 3}
     - target: {fileID: 3890577123059350100, guid: c67f821925bbbff41bd550b71b0d5e06, type: 3}
+      propertyPath: _spawnSpeed
+      value: 0.2
+      objectReference: {fileID: 0}
+    - target: {fileID: 3890577123059350100, guid: c67f821925bbbff41bd550b71b0d5e06, type: 3}
       propertyPath: _baseEnemies.Array.size
       value: 1
       objectReference: {fileID: 0}
@@ -57045,6 +57049,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 5412144218558908989, guid: 2c60980a33e791348ac4688a38985c42, type: 3}
     - target: {fileID: 3890577123059350100, guid: c67f821925bbbff41bd550b71b0d5e06, type: 3}
+      propertyPath: _spawnSpeed
+      value: 0.2
+      objectReference: {fileID: 0}
+    - target: {fileID: 3890577123059350100, guid: c67f821925bbbff41bd550b71b0d5e06, type: 3}
       propertyPath: _baseEnemies.Array.size
       value: 1
       objectReference: {fileID: 0}
@@ -57866,6 +57874,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 5412144218558908989, guid: 2c60980a33e791348ac4688a38985c42, type: 3}
     - target: {fileID: 3890577123059350100, guid: c67f821925bbbff41bd550b71b0d5e06, type: 3}
+      propertyPath: _spawnSpeed
+      value: 0.2
+      objectReference: {fileID: 0}
+    - target: {fileID: 3890577123059350100, guid: c67f821925bbbff41bd550b71b0d5e06, type: 3}
       propertyPath: _baseEnemies.Array.size
       value: 1
       objectReference: {fileID: 0}
@@ -58263,6 +58275,10 @@ PrefabInstance:
       propertyPath: _tankEnemy
       value: 
       objectReference: {fileID: 5412144218558908989, guid: 2c60980a33e791348ac4688a38985c42, type: 3}
+    - target: {fileID: 3890577123059350100, guid: c67f821925bbbff41bd550b71b0d5e06, type: 3}
+      propertyPath: _spawnSpeed
+      value: 0.2
+      objectReference: {fileID: 0}
     - target: {fileID: 3890577123059350100, guid: c67f821925bbbff41bd550b71b0d5e06, type: 3}
       propertyPath: _baseEnemies.Array.size
       value: 1
@@ -170025,6 +170041,10 @@ PrefabInstance:
       propertyPath: _tankEnemy
       value: 
       objectReference: {fileID: 5412144218558908989, guid: 2c60980a33e791348ac4688a38985c42, type: 3}
+    - target: {fileID: 3890577123059350100, guid: c67f821925bbbff41bd550b71b0d5e06, type: 3}
+      propertyPath: _spawnSpeed
+      value: 0.2
+      objectReference: {fileID: 0}
     - target: {fileID: 3890577123059350100, guid: c67f821925bbbff41bd550b71b0d5e06, type: 3}
       propertyPath: _baseEnemies.Array.size
       value: 1

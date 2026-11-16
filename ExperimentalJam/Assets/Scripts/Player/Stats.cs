@@ -47,10 +47,13 @@ public class Stats : MonoBehaviour
                 return _duration;
             case StatModifier.COOLDOWN:
                 return _cooldown;
-            case StatModifier.COUNT:
-                return _count;
             default:
                 return 1;
         }
+    }
+
+    public int GetCount()
+    {
+        return _count;
     }
 }
