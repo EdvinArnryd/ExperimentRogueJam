@@ -53976,7 +53976,7 @@ MonoBehaviour:
   _cooldownBase: -0.01
   _damageBase: 1
   _durationBase: 0.3
-  _sizeBase: 0.3
+  _sizeBase: 0.2
   _speedBase: 0.3
   _cooldownSprite: {fileID: -5549597623131305649, guid: d0114353b4bfd014ca368f474b9cd82c, type: 3}
   _damageSprite: {fileID: 3463658362275521134, guid: 828b8559cabf72a4090f32bc51f5d826, type: 3}

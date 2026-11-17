@@ -13,7 +13,7 @@ public class StatGenerator : MonoBehaviour
     [SerializeField] float _cooldownBase = -0.01f;
     [SerializeField] float _damageBase = 0.3f;
     [SerializeField] float _durationBase = 0.3f;
-    [SerializeField] float _sizeBase = 0.3f;
+    [SerializeField] float _sizeBase = 0.1f;
     [SerializeField] float _speedBase = 0.3f;
     
     [Header("Stat Sprites")]
